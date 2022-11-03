@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/super-reset.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>Economics</title>
+</head>
+
+<body>
+    <header>
+        <iconify-icon class="nav__btn-open" icon="charm:menu-hamburger"></iconify-icon>
+        <nav class="nav hidden">
+            <h1 class="nav__logo">Economics</h1>
+            <iconify-icon class="nav__btn-close" icon="bi:x"></iconify-icon>
+            <div class="nav__divider">
+                <ul class="nav__ul-u">
+                    <li class="nav__li">
+                        <a href="#" class="nav__a">
+                            <iconify-icon class="nav__icon" icon="bxs:dashboard"></iconify-icon>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav__li">
+                        <a href="#" class="nav__a">
+                            <iconify-icon class="nav__icon" icon="akar-icons:wallet"></iconify-icon>My
+                            wallets
+                        </a>
+                    </li>
+                    <li class="nav__li">
+                        <a href="#" class="nav__a">
+                            <iconify-icon class="nav__icon" icon="carbon:categories"></iconify-icon>Categories
+                        </a>
+                    </li>
+                    <li class="nav__li">
+                        <a href="#" class="nav__a">
+                            <iconify-icon class="nav__icon" icon="grommet-icons:transaction"></iconify-icon>Transactions
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav__ul-d">
+                    <li class="nav__li">
+                        <a href="#" class="nav__a">
+                            <iconify-icon class="nav__icon" icon="fluent:call-28-regular"></iconify-icon>Contact us
+                        </a>
+                    </li>
+                    <li class="nav__li">
+                        <a href="#" class="nav__a">
+                            <iconify-icon class="nav__icon" icon="carbon:settings"></iconify-icon>Settings
+                        </a>
+                    </li>
+                    <li class="nav__li">
+                        <a href="#" class="nav__a">
+                            <iconify-icon class="nav__icon" icon="fluent-mdl2:leave"></iconify-icon>Log
+                            Out
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="profile">
+            <p class="profile__name">John Doe<iconify-icon class="profile__icon" icon="iconoir:profile-circled"></iconify-icon></p>
+        </div>
+    </header>
+
+    <main>
+        <h2 class="main__wallet">My wallets</h2>
+        <div class="wallet">
+            <div class="wallet__card">
+                <div class="wallet__top">
+                    <p class="wallet__p">Credit</p>
+                    <p class="wallet__p">Wallet 1</p>
+                </div>
+                <p class="wallet__p">Balance</p>
+                <p class="wallet__p-price">$10,000</p>
+            </div>
+            <div class="wallet__card">
+                <div class="wallet__top">
+                    <p class="wallet__p">Credit</p>
+                    <p class="wallet__p">Wallet 2</p>
+                </div>
+                <p class="wallet__p">Balance</p>
+                <p class="wallet__p-price">$4,000</p>
+            </div>
+        </div>
+
+        <div class="monthly">
+            <h2 class="monthly__title">Monthly final status</h2>
+            <img src="./assets/img/Capture d’écran du 2022-11-01 22-14-11.png" class="monthly__graphic" alt="" />
+        </div>
+
+        <div class="categories">
+            <h2 class="categories__title">Categories</h2>
+            <div class="categories__periods">
+                <p class="categories__p">D</p>
+                <p class="categories__p">W</p>
+                <p class="categories__p">M</p>
+            </div>
+
+            <div class="categories__divider">
+                <div class="categories__item">
+                    <p class="categories__p">Maintenance</p>
+                    <p class="categories__p-price">-$300</p>
+                </div>
+                <div class="categories__item">
+                    <p class="categories__p">Maintenance</p>
+                    <p class="categories__p-price">-$300</p>
+                </div>
+                <div class="categories__item">
+                    <p class="categories__p">Maintenance</p>
+                    <p class="categories__p-price">-$300</p>
+                </div>
+                <div class="categories__item">
+                    <p class="categories__p">Maintenance</p>
+                    <p class="categories__p-price">-$300</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="expenses">
+                <h3 class="expenses__title">My expenses</h3>
+            </div>
+            <div class="expenses__periods">
+                <p class="expenses__p">D</p>
+                <p class="expenses__p">W</p>
+                <p class="expenses__p">M</p>
+            </div>
+            <img src="./assets/img/xd.png" class="expenses__graphic" alt="xd" />
+        </div>
+        <div class="recents">
+            <h2 class="recents__title">Recents</h2>
+            <div class="recents__divider">
+                <div class="recents__item">
+                    <p class="recents__p">
+                        <iconify-icon icon="grommet-icons:transaction"></iconify-icon>Salary
+                    </p>
+                    <p class="recents__p-price">$2,000</p>
+                </div>
+                <div class="recents__item">
+                    <p class="recents__p">
+                        <iconify-icon icon="grommet-icons:transaction"></iconify-icon>Car
+                    </p>
+                    <p class="recents__p-price">-$4,000</p>
+                </div>
+                <div class="recents__item">
+                    <p class="recents__p">
+                        <iconify-icon icon="grommet-icons:transaction"></iconify-icon>Other income
+                    </p>
+                    <p class="recents__p-price">$300</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
