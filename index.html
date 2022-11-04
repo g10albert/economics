@@ -13,11 +13,11 @@
 <body>
     <header>
         <iconify-icon class="nav__btn-open" icon="charm:menu-hamburger"></iconify-icon>
-        <nav class="nav hidden">
+        <nav class="nav">
             <h1 class="nav__logo">Economics</h1>
             <iconify-icon class="nav__btn-close" icon="bi:x"></iconify-icon>
             <div class="nav__divider">
-                <ul class="nav__ul-u">
+                <ul class="nav__ul-u nav__ul">
                     <li class="nav__li">
                         <a href="#" class="nav__a">
                             <iconify-icon class="nav__icon" icon="bxs:dashboard"></iconify-icon>Dashboard
@@ -40,10 +40,10 @@
                         </a>
                     </li>
                 </ul>
-                <ul class="nav__ul-d">
+                <ul class="nav__ul-d nav__ul">
                     <li class="nav__li">
                         <a href="#" class="nav__a">
-                            <iconify-icon class="nav__icon" icon="fluent:call-28-regular"></iconify-icon>Contact us
+                            <iconify-icon class="nav__icon" icon="carbon:phone"></iconify-icon>Contact us
                         </a>
                     </li>
                     <li class="nav__li">
@@ -61,24 +61,26 @@
             </div>
         </nav>
         <div class="profile">
-            <p class="profile__name">John Doe<iconify-icon class="profile__icon" icon="iconoir:profile-circled"></iconify-icon></p>
+            <p class="profile__name">John Doe<iconify-icon class="profile__icon" icon="iconoir:profile-circled">
+                </iconify-icon>
+            </p>
         </div>
     </header>
 
     <main>
-        <h2 class="main__wallet">My wallets</h2>
+        <h2 class="wallet__title">My wallets</h2>
         <div class="wallet">
             <div class="wallet__card">
                 <div class="wallet__top">
-                    <p class="wallet__p">Credit</p>
+                    <p class="wallet__p-gray">Credit</p>
                     <p class="wallet__p">Wallet 1</p>
                 </div>
                 <p class="wallet__p">Balance</p>
                 <p class="wallet__p-price">$10,000</p>
             </div>
-            <div class="wallet__card">
+            <div class="wallet__card wallet__card-2">
                 <div class="wallet__top">
-                    <p class="wallet__p">Credit</p>
+                    <p class="wallet__p-gray">Credit</p>
                     <p class="wallet__p">Wallet 2</p>
                 </div>
                 <p class="wallet__p">Balance</p>
@@ -92,11 +94,13 @@
         </div>
 
         <div class="categories">
-            <h2 class="categories__title">Categories</h2>
-            <div class="categories__periods">
-                <p class="categories__p">D</p>
-                <p class="categories__p">W</p>
-                <p class="categories__p">M</p>
+            <div class="categories__top">
+                <h2 class="categories__title">Categories</h2>
+                <div class="categories__periods">
+                    <p class="periods__p periods__active">D</p>
+                    <p class="periods__p periods__active">W</p>
+                    <p class="periods__p periods__active">M</p>
+                </div>
             </div>
 
             <div class="categories__divider">
@@ -105,48 +109,57 @@
                     <p class="categories__p-price">-$300</p>
                 </div>
                 <div class="categories__item">
-                    <p class="categories__p">Maintenance</p>
+                    <p class="categories__p">House</p>
                     <p class="categories__p-price">-$300</p>
                 </div>
                 <div class="categories__item">
-                    <p class="categories__p">Maintenance</p>
+                    <p class="categories__p">Pets</p>
                     <p class="categories__p-price">-$300</p>
                 </div>
                 <div class="categories__item">
-                    <p class="categories__p">Maintenance</p>
-                    <p class="categories__p-price">-$300</p>
+                    <p class="categories__p">Food</p>
+                    <p class="categories__p-price">-$700</p>
                 </div>
             </div>
         </div>
-        <div>
-            <div class="expenses">
-                <h3 class="expenses__title">My expenses</h3>
+        <div class="expenses">
+            <div class="expenses__top">
+                <div class="expenses__top">
+                    <h3 class="expenses__title">My expenses</h3>
+                </div>
+                <div class="expenses__periods">
+                    <p class="expenses__p expenses__active">D</p>
+                    <p class="expenses__p expenses__active">W</p>
+                    <p class="expenses__p expenses__active">M</p>
+                </div>
             </div>
-            <div class="expenses__periods">
-                <p class="expenses__p">D</p>
-                <p class="expenses__p">W</p>
-                <p class="expenses__p">M</p>
+
+            <div class="graphic__wrapper">
+                <div class="graphic__text">
+                    <p class="graphic__p">Total</p>
+                    <p class="graphic__p">$1,500.00</p>
+                </div>
+                <img src="./assets/img/xd.png" class="expenses__graphic" alt="xd" />
             </div>
-            <img src="./assets/img/xd.png" class="expenses__graphic" alt="xd" />
         </div>
         <div class="recents">
             <h2 class="recents__title">Recents</h2>
             <div class="recents__divider">
                 <div class="recents__item">
                     <p class="recents__p">
-                        <iconify-icon icon="grommet-icons:transaction"></iconify-icon>Salary
+                        <iconify-icon icon="grommet-icons:transaction" class="recents__icon"></iconify-icon>Salary
                     </p>
                     <p class="recents__p-price">$2,000</p>
                 </div>
-                <div class="recents__item">
+                <div class="recents__item recents__item2">
                     <p class="recents__p">
-                        <iconify-icon icon="grommet-icons:transaction"></iconify-icon>Car
+                        <iconify-icon icon="grommet-icons:transaction" class="recents__icon"></iconify-icon>Car
                     </p>
                     <p class="recents__p-price">-$4,000</p>
                 </div>
                 <div class="recents__item">
                     <p class="recents__p">
-                        <iconify-icon icon="grommet-icons:transaction"></iconify-icon>Other income
+                        <iconify-icon icon="grommet-icons:transaction" class="recents__icon"></iconify-icon>Other income
                     </p>
                     <p class="recents__p-price">$300</p>
                 </div>
@@ -154,7 +167,9 @@
         </div>
     </main>
 
-    <footer></footer>
+    <footer class="footer">
+        <p class="footer__p">Made with <span class="footer__heart">&hearts;</span> by g10albert</p>
+    </footer>
 
     <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
     <script src="./js/index.js"></script>

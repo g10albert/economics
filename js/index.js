@@ -9,12 +9,12 @@ const closeMenu = document.querySelector('.nav__btn-close')
 
 openMenu.addEventListener('click', () => {
     menu.classList.remove('hidden')
-    openMenu.classList.toggle('hidden')
+    menu.classList.add('menu__active')
+    
 })
 
 closeMenu.addEventListener('click', () => {
-    menu.classList.add('hidden')
-    openMenu.classList.toggle('hidden')
+    menu.classList.remove('menu__active')
 })
 
 
