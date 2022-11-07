@@ -11,7 +11,7 @@
   --clr-red: #fc6e56;
   --clr-purple: #e4c9ff;
   --clr-black: #000000;
-  --clr-bg: #ffffff;
+  --clr-text: #000000;
 
   /* variables for font family */
 
@@ -44,15 +44,17 @@
 [data-theme=dark] {
   --clr-bg: #221f2d;
   --clr-blue: #679cc8;
-  --clr-aqua: #5ae2c3;
-  --clr-green: #63f17a;
-  --clr-darker: #221f2d;
+  --clr-aqua: #49b69c;
+  --clr-green: #4eaf5e;
+  --clr-darker: #201d2b;
   --clr-red: #fc6e56;
-  --clr-purple: #e4c9ff;
+  --clr-purple: #c0a9d6;
+  --clr-text: #f0f0f0;
 }
 
 body {
   background: var(--clr-bg);
+  color: var(--clr-text);
   font-family: 'Lato', sans-serif;
   font-weight: 500;
 }
@@ -83,6 +85,7 @@ header {
   height: 100%;
   background: var(--clr-darker);
   transition: all 1s ease-in-out;
+  z-index: 10000;
 }
 
 .menu__active {
@@ -176,12 +179,16 @@ main {
 .monthly__title {
   text-align: center;
   font-size: var(--fz-big);
-  margin-top: var(--m-big);
+  margin: var(--m-big) 0 var(--m-small) 0;
 }
 
 .monthly__graphic {
-  transform: rotate(90deg);
-  margin: 11rem 0;
+  /* transform: rotate(90deg); */
+  /* rotate: 90deg; */
+  /* z-index: -1000; */
+  /* margin: 11rem 0; */
+  background: transparent;
+  height: 300px !important;
 }
 
 .categories__top {
@@ -270,6 +277,7 @@ position: relative;
     flex-direction: column;
     align-items: center;
     font-size: var(--fz-small);
+    z-index: -48438;
 }
 
 .graphic__p {
