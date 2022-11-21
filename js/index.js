@@ -4,6 +4,7 @@ const toggleTheme = document.querySelector("#toggle-theme");
 const menu = document.querySelector(".nav");
 const openMenu = document.querySelector(".nav__btn-open");
 const closeMenu = document.querySelector(".nav__btn-close");
+const wallets = document.getElementById("wallets");
 
 // Making menu responsive
 
@@ -69,7 +70,20 @@ const barChart = new Chart(ctx, {
       {
         fill: false,
         data: [1, -20, 3, 5, -2, 3, -30, 3, -5, 10, -10, 30],
-        backgroundColor: ["#63f17a", "#fc6e56", "#63f17a", "#63f17a", "#fc6e56", "#63f17a", "#fc6e56", "#63f17a", "#fc6e56", "#63f17a", "#fc6e56", "#63f17a"],
+        backgroundColor: [
+          "#63f17a",
+          "#fc6e56",
+          "#63f17a",
+          "#63f17a",
+          "#fc6e56",
+          "#63f17a",
+          "#fc6e56",
+          "#63f17a",
+          "#fc6e56",
+          "#63f17a",
+          "#fc6e56",
+          "#63f17a",
+        ],
         barPercentage: 1,
       },
     ],
@@ -104,21 +118,19 @@ const ctx2 = document.getElementById("doughnutChart").getContext("2d");
 const doughnutChart = new Chart(ctx2, {
   type: "doughnut",
   data: {
-    labels: [
-      'Red',
-      'Blue',
-      'Yellow'
+    labels: ["Red", "Blue", "Yellow"],
+    datasets: [
+      {
+        label: "My First Dataset",
+        data: [300, 50, 100],
+        backgroundColor: [
+          "rgb(255, 99, 132)",
+          "rgb(54, 162, 235)",
+          "rgb(255, 205, 86)",
+        ],
+        hoverOffset: 1,
+      },
     ],
-    datasets: [{
-      label: 'My First Dataset',
-      data: [300, 50, 100],
-      backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)'
-      ],
-      hoverOffset: 1
-    }]
   },
   options: {
     plugins: {
@@ -128,4 +140,29 @@ const doughnutChart = new Chart(ctx2, {
     },
   },
 });
+
+fetch("http://localhost/api/wallets_api.php")
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+    for (let i = 0; i < 2; i++) {
+      console.log(data[i]);
+
+      item =
+      `
+      <div class="wallet__card">
+        <div class="wallet__top">
+          <p class="wallet__p-gray">${data[i].type}</p>
+          <p class="wallet__p">${data[i].name}</p>
+        </div>
+        <p class="wallet__p">Balance</p>
+        <p class="wallet__p-price">$${data[i].balance}</p>
+      </div>
+      `
+      wallets.innerHTML += item;
+    }
+
+  });
 
