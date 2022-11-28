@@ -251,14 +251,11 @@ main {
 
 .expenses__p {
   font-size: var(--fz-medium);
-}
-
-.expenses__active {
   padding: var(--p-small);
   border-radius: 1rem;
 }
 
-.expenses__p:first-child {
+.expenses__active {
   background: var(--clr-purple);
 }
 
@@ -296,7 +293,6 @@ position: relative;
 }
 
 .recents__item{
-  background: var(--clr-green);
   padding: var(--p-items);
   margin-bottom: var(--m-small);
   border-radius: 1rem;
@@ -306,8 +302,12 @@ position: relative;
   min-height: 7rem;
 }
 
-.recents__item2 {
-  background: var(--clr-red);
+.recents__income {
+ background-color: var(--clr-green);
+}
+
+.recents__outcome {
+  background-color: var(--clr-red);
 }
 
 .recents__icon {
