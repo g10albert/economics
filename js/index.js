@@ -121,7 +121,9 @@ function loadGraph(url) {
 
       total.textContent = formatter.format(totalByTime);
 
-      if (numberOfTransactions == 1) {
+      if (numberOfTransactions == 0) {
+        total.textContent = " This looks empty!";
+      } else if (numberOfTransactions == 1) {
         val1 = data[0].total_category;
         cat1 = data[0].category;
       } else if (numberOfTransactions == 2) {
@@ -138,8 +140,8 @@ function loadGraph(url) {
         cat3 = data[2].category;
       }
 
-      const ctx2 = document.getElementById("doughnutChart").getContext("2d");
-      doughnutChart = new Chart(ctx2, {
+      const ctx = document.getElementById("doughnutChart").getContext("2d");
+      doughnutChart = new Chart(ctx, {
         type: "doughnut",
         data: {
           labels: [`${cat1}`, `${cat2}`, `${cat3}`],
@@ -149,10 +151,9 @@ function loadGraph(url) {
               data: [`${val1}`, `${val2}`, `${val3}`],
               backgroundColor: [
                 "rgb(255, 99, 132)",
-                "rgb(54, 162, 235)",
                 "rgb(255, 205, 86)",
+                "rgb(54, 162, 235)",
               ],
-              hoverOffset: 1,
             },
           ],
         },
@@ -161,6 +162,11 @@ function loadGraph(url) {
             legend: {
               display: false,
             },
+            tooltip: {
+              bodyFont: {
+                size: 20
+              },
+            }
           },
         },
       });

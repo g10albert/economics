@@ -63,9 +63,9 @@
         </ul>
       </div>
     </nav>
-    <div class="profile">
-      <p class="profile__name">
-        New transaction<iconify-icon icon="grommet-icons:transaction" class="profile__icon"></iconify-icon>
+    <div class="new__transaction-wrapper new__transaction-phone">
+      <p class="new__transaction">
+        New transaction<iconify-icon icon="grommet-icons:transaction" class="new__transaction"></iconify-icon>
       </p>
     </div>
   </header>
@@ -76,30 +76,35 @@
 
     </div>
 
-    <div class="expenses">
-      <div class="expenses__top">
+    <div class="expenses__recents-wrapper">
+      <div class="new__transaction-wrapper new__transaction-desktop">
+        <p class="new__transaction">
+          New transaction<iconify-icon icon="grommet-icons:transaction" class="new__transaction"></iconify-icon>
+        </p>
+      </div>
+      <div class="expenses">
         <div class="expenses__top">
-          <h3 class="expenses__title">My expenses</h3>
+          <div class="">
+            <h3 class="expenses__title">My expenses</h3>
+          </div>
+          <div class="expenses__periods">
+            <p class="expenses__p timeframe expenses__active" value="1" id="expense_day">D</p>
+            <p class="expenses__p timeframe" value="2" id="expense_week">W</p>
+            <p class="expenses__p timeframe" value="3" id="expense_month">M</p>
+          </div>
         </div>
-        <div class="expenses__periods">
-          <p class="expenses__p timeframe expenses__active" value="1" id="expense_day">D</p>
-          <p class="expenses__p timeframe" value="2" id="expense_week">W</p>
-          <p class="expenses__p timeframe" value="3" id="expense_month">M</p>
+        <div class="graphic__wrapper">
+          <div class="graphic__text">
+            <p class="graphic__p">Total</p>
+            <p class="graphic__p" id="total">$1,500.00</p>
+          </div>
+          <canvas id="doughnutChart" class="expenses__graphic"></canvas>
         </div>
       </div>
-
-      <div class="graphic__wrapper">
-        <div class="graphic__text">
-          <p class="graphic__p">Total</p>
-          <p class="graphic__p" id="total">$1,500.00</p>
+      <div class="recents">
+        <h2 class="recents__title">Recents</h2>
+        <div class="recents__divider" id="recents">
         </div>
-        <canvas id="doughnutChart" class="expenses__graphic"></canvas>
-      </div>
-    </div>
-    <div class="recents">
-      <h2 class="recents__title">Recents</h2>
-      <div class="recents__divider" id="recents">
-
       </div>
     </div>
   </main>
@@ -129,7 +134,7 @@
 
 
   <script>
-    
+
   </script>
 </body>
 
