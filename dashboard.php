@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./css/super-reset.css" />
-  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="./css/dashboard.css" />
   <title>Economics</title>
 </head>
 
@@ -19,7 +19,7 @@
       <div class="nav__divider">
         <ul class="nav__ul-u nav__ul">
           <li class="nav__li">
-            <a href="#" class="nav__a">
+            <a href="#" class="nav__a nav__a-active">
               <iconify-icon class="nav__icon" icon="bxs:dashboard"></iconify-icon>Dashboard
             </a>
           </li>
@@ -74,6 +74,8 @@
     <h2 class="wallet__title">My wallets</h2>
     <div class="wallet" id="wallets">
 
+      <!-- element that is going to have the wallet cards -->
+
     </div>
 
     <div class="expenses__recents-wrapper">
@@ -96,7 +98,11 @@
         <div class="graphic__wrapper">
           <div class="graphic__text">
             <p class="graphic__p">Total</p>
-            <p class="graphic__p" id="total">$1,500.00</p>
+            <p class="graphic__p" id="total">
+
+              <!-- element that is going to have the total amount of expenses depending on period of time -->
+
+            </p>
           </div>
           <canvas id="doughnutChart" class="expenses__graphic"></canvas>
         </div>
@@ -104,6 +110,9 @@
       <div class="recents">
         <h2 class="recents__title">Recents</h2>
         <div class="recents__divider" id="recents">
+
+          <!-- element that is going to have the recent transactions -->
+
         </div>
       </div>
     </div>
@@ -116,21 +125,15 @@
   </footer>
 
   <!-- CDN CHARTJS (FOR CHARTS) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
-    integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- CDN ICONIFY (FOR ICONS) -->
   <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
   <!-- MomentJS CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- LINK TO MY JS FILE -->
-  <script src="./js/index.js" type="module"></script>
+  <script src="./js/dashboard.js" type="module"></script>
   <!-- LINK TO JQUERY -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
   <script>

@@ -7,7 +7,7 @@
   --clr-blue: #679cc8;
   --clr-aqua: #5ae2c3;
   --clr-green: #63f17a;
-  --clr-darker: #f9f9f9;
+  --clr-darker: #f1f1f1;
   --clr-red: #fc6e56;
   --clr-purple: #e4c9ff;
   --clr-black: #000000;
@@ -73,10 +73,14 @@
   --clr-text: #f0f0f0;
 }
 
+/* changing colors of selection depending on color scheme */
+
 ::selection {
   background-color: var(--clr-text);
   color: var(--clr-darker);
 }
+
+/* defalut settings for the site */
 
 body {
   background: var(--clr-bg);
@@ -84,6 +88,8 @@ body {
   font-family: "Lato", sans-serif;
   font-weight: 500;
 }
+
+/* styles for header/nav mobile */
 
 header {
   height: 10rem;
@@ -136,7 +142,17 @@ header {
 }
 
 .nav__li {
-  margin-top: var(--mm-big);
+  margin-top: var(--mm-small);
+}
+
+.nav__a {
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+.nav__a-active {
+  background: var(--clr-purple);
+  color: var(--clr-black);
 }
 
 .nav__icon {
@@ -156,9 +172,13 @@ header {
   margin: 0 0 -0.5rem 1rem;
 }
 
+/* styles for main section mobile */
+
 main {
   margin: var(--mm-sides);
 }
+
+/* styles for wallet section mobile */
 
 .wallet__title {
   font-size: var(--fzm-big);
@@ -190,6 +210,8 @@ main {
   font-size: var(--fzm-big);
   font-weight: var(--weight-medium);
 }
+
+/* styles for expenses section mobile */
 
 .expenses {
   margin-top: var(--mm-big);
@@ -240,6 +262,8 @@ main {
   margin-bottom: var(--mm-small);
 }
 
+/* styles for recents section */
+
 .recents__title {
   font-size: var(--fzm-big);
   text-align: center;
@@ -273,6 +297,8 @@ main {
   margin: var(--mm-icon);
 }
 
+/* styles for footer section mobile */
+
 .footer {
   margin-top: var(--mm-big);
   text-align: center;
@@ -288,7 +314,12 @@ main {
   color: var(--clr-red);
 }
 
+/* styles for tablets */
+
 @media (min-width: 768px) {
+
+  /* styles for header/nav tablets */
+
   header {
     height: 13rem;
   }
@@ -313,6 +344,10 @@ main {
     font-size: var(--fzt-medium);
   }
 
+  .nav__a {
+    padding: 2.5rem;
+  }
+
   .new__transaction-wrapper {
     right: 5rem;
     font-size: var(--fzt-medium);
@@ -322,6 +357,8 @@ main {
     font-size: 3rem;
     margin: 0 0 -0.5rem 2rem;
   }
+
+  /* styles for main section tablets */
 
   main {
     margin: var(--mt-sides);
@@ -350,6 +387,8 @@ main {
     font-size: var(--fzt-medium);
   }
 
+  /* styles for expenses section tablets */
+
   .expenses {
     margin-top: var(--mt-small);
   }
@@ -376,6 +415,8 @@ main {
     margin-bottom: var(--mt-small);
   }
 
+  /* styles for recents section tablets */
+
   .recents__title {
     font-size: var(--fzt-big);
     margin: var(--mt-big);
@@ -396,6 +437,8 @@ main {
     margin: var(--mt-icon);
   }
 
+  /* styles for footer section tablets */
+
   .footer {
     margin-top: var(--mt-big);
     min-height: 6rem;
@@ -410,30 +453,11 @@ main {
   }
 }
 
+/* styles for desktop tablets */
 
+@media (min-width: 1190px) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (min-width: 1024px) {
+/* styles for header/nav section desktop */
 
   header {
     height: 0;
@@ -464,8 +488,19 @@ main {
   }
 
   .nav__ul {
-    margin: 1rem auto 1rem auto;
+    margin: 4rem auto 1rem auto;
     font-size: var(--fzm-medium);
+  }
+
+  .nav__a {
+    padding: 1.5rem;
+  }
+
+  .nav__a:hover {
+    background: var(--clr-purple);
+    border-radius: 1rem;
+    color: var(--clr-black);
+    transition: all .3s ease-in-out;
   }
 
   .new__transaction-phone {
@@ -478,6 +513,8 @@ main {
     right: 3rem;
     z-index: 342534;
   }
+
+  /* styles for main section desktop */
 
   main {
     margin-left: 30rem;
@@ -493,11 +530,13 @@ main {
     font-size: var(--fzm-medium);
   }
 
+  /* styles for expenses section desktop */
+
   .expenses__recents-wrapper {
     width: 35rem;
     position: absolute;
     right: 0;
-    top: 0rem;
+    top: 0;
     display: flex;
     flex-direction: column;
     border-left: var(--clr-darker) solid 3px;
@@ -527,6 +566,8 @@ main {
     background: var(--clr-purple);
   }
 
+  /* styles for recents section desktop */
+
   .recents__title {
     font-size: var(--fzt-medium);
   }
@@ -538,6 +579,8 @@ main {
   .recents__item {
     min-height: 7rem;
   }
+
+  /* styles for footer section desktop */
 
   .footer {
     margin-top: var(--mm-big);
@@ -552,5 +595,46 @@ main {
   .footer__heart {
     font-size: var(--fzm-medium);
     color: var(--clr-red);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* styles for bigger screens */
+
+
+@media (min-width: 1600px) {
+
+/* make body grid to center everything */
+
+  body {
+    display: grid;
+    justify-content: center;
+  }
+
+  /* reassigning styles to adjust elements */
+
+  main {
+    margin-right: 0;
+    width: 70%;
+  }
+
+  .expenses__recents-wrapper {
+    position: relative;
+    width: auto;
+    border-left: none;
+  }
+
+  .new__transaction-wrapper {
+    top: 0;
+    left: -1.5rem;
   }
 }
