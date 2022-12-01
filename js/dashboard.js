@@ -11,6 +11,7 @@ const categoryWeek = document.querySelector("#expense_week");
 const categoryMonth = document.querySelector("#expense_month");
 const total = document.querySelector("#total");
 let doughnutChart = null;
+let barChart = null;
 let totalByTime = 0;
 
 let activeTheme;
@@ -95,6 +96,200 @@ $(document).ready(function () {
   });
 });
 
+// Show monthly final status
+
+let totalJan = 0;
+let totalFeb = 0;
+let totalMar = 0;
+let totalApr = 0;
+let totalMay = 0;
+let totalJun = 0;
+let totalJul = 0;
+let totalAug = 0;
+let totalSep = 0;
+let totalOct = 0;
+let totalNov = 0;
+let totalDec = 0;
+
+fetch("http://localhost/api/transactions_api.php")
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+
+    // get the year only from the newest transaction
+
+    let dateYear = data[0].date.substring(0, 4);
+
+    if (dateYear == new Date().getFullYear()) {
+      for (let i = 0; i < data.length; i++) {
+        // get the year only from the data from the database
+        let dateMonth = data[i].date.substring(5, 7);
+
+        // if month of the transaction math with number of month add the income and subtract the outcome to get final status of month
+
+        if (dateMonth == "01") {
+          if (data[i].income_or_outcome == 1) {
+            totalJan += +data[i].amount;
+          } else {
+            totalJan -= +data[i].amount;
+          }
+        } else if (dateMonth == "02") {
+          if (data[i].income_or_outcome == 1) {
+            totalFeb += +data[i].amount;
+          } else {
+            totalFeb -= +data[i].amount;
+          }
+        } else if (dateMonth == "03") {
+          if (data[i].income_or_outcome == 1) {
+            totalMar += +data[i].amount;
+          } else {
+            totalMar -= +data[i].amount;
+          }
+        } else if (dateMonth == "04") {
+          if (data[i].income_or_outcome == 1) {
+            totalApr += +data[i].amount;
+          } else {
+            totalApr -= +data[i].amount;
+          }
+        } else if (dateMonth == "05") {
+          if (data[i].income_or_outcome == 1) {
+            totalMay += +data[i].amount;
+          } else {
+            totalMay -= +data[i].amount;
+          }
+        } else if (dateMonth == "06") {
+          if (data[i].income_or_outcome == 1) {
+            totalJun += +data[i].amount;
+          } else {
+            totalJun -= +data[i].amount;
+          }
+        } else if (dateMonth == "07") {
+          if (data[i].income_or_outcome == 1) {
+            totalJul += +data[i].amount;
+          } else {
+            totalJul -= +data[i].amount;
+          }
+        } else if (dateMonth == "08") {
+          if (data[i].income_or_outcome == 1) {
+            totalAug += +data[i].amount;
+          } else {
+            totalAug -= +data[i].amount;
+          }
+        } else if (dateMonth == "09") {
+          if (data[i].income_or_outcome == 1) {
+            totalSep += +data[i].amount;
+          } else {
+            totalSep -= +data[i].amount;
+          }
+        } else if (dateMonth == "10") {
+          if (data[i].income_or_outcome == 1) {
+            totalOct += +data[i].amount;
+          } else {
+            totalOct -= +data[i].amount;
+          }
+        } else if (dateMonth == "11") {
+          if (data[i].income_or_outcome == 1) {
+            totalNov += +data[i].amount;
+          } else {
+            totalNov -= +data[i].amount;
+          }
+        } else if (dateMonth == "12") {
+          if (data[i].income_or_outcome == 1) {
+            totalDec += +data[i].amount;
+          } else {
+            totalDec -= +data[i].amount;
+          }
+        }
+      }
+    }
+
+    // display monthly final status information
+
+    const ctx = document.getElementById("barChart").getContext("2d");
+    barChart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: [
+          `Jan`,
+          `Feb`,
+          `Mar`,
+          `Apr`,
+          `May`,
+          `Jun`,
+          `Jul`,
+          `Aug`,
+          `Sep`,
+          `Oct`,
+          `Nov`,
+          `Dec`,
+        ],
+        datasets: [
+          {
+            data: [
+              `${totalJan}`,
+              `${totalFeb}`,
+              `${totalMar}`,
+              `${totalApr}`,
+              `${totalMay}`,
+              `${totalJun}`,
+              `${totalJul}`,
+              `${totalAug}`,
+              `${totalSep}`,
+              `${totalOct}`,
+              `${totalNov}`,
+              `${totalDec}`,
+            ],
+            backgroundColor: [""],
+          },
+        ],
+      },
+      options: {
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            bodyFont: {
+              size: 15,
+            },
+          },
+        },
+        scales: {
+          y: {
+            // display: false,
+            grid: {
+              display: false,
+            },
+          },
+          x: {
+            display: false,
+            grid: {
+              display: false,
+            },
+          },
+        },
+      },
+    });
+    let chartColors = {
+      red: "rgb(252, 110, 86)",
+      green: "rgb(99, 241, 122)",
+    };
+
+    // change color of bar depending if there were more outcomes or incomes
+
+    let dataset = barChart.data.datasets[0];
+    for (let i = 0; i < dataset.data.length; i++) {
+      if (dataset.data[i] < 0) {
+        dataset.backgroundColor[i] = chartColors.red;
+      } else {
+        dataset.backgroundColor[i] = chartColors.green;
+      }
+    }
+    barChart.update();
+  });
+
 // Function to load graph in different timeframes
 
 function loadGraph(url) {
@@ -164,9 +359,9 @@ function loadGraph(url) {
             },
             tooltip: {
               bodyFont: {
-                size: 20
+                size: 20,
               },
-            }
+            },
           },
         },
       });

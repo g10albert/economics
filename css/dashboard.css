@@ -3,11 +3,11 @@
 :root {
   /* variables for colors */
 
-  --clr-bg: #ffffff;
+  --clr-bg: #f3f3f3;
   --clr-blue: #679cc8;
   --clr-aqua: #5ae2c3;
   --clr-green: #63f17a;
-  --clr-darker: #f1f1f1;
+  --clr-darker: #e6e6e6;
   --clr-red: #fc6e56;
   --clr-purple: #e4c9ff;
   --clr-black: #000000;
@@ -58,16 +58,22 @@
   --mt-small: 2.7rem;
   --mt-icon: 0rem 1rem -0.3rem 0;
   --mt-sides: 0 8rem;
+
+  /* desktop variables */
+
+  --fzd-big: 2.3rem;
+  --fzd-medium: 1.7rem;
+  --fzd-small: 1.4rem;
 }
 
 /* Dark theme */
 
 [data-theme="dark"] {
-  --clr-bg: #2E2B3E;
+  --clr-bg: #2e2b3e;
   --clr-blue: #679cc8;
   --clr-aqua: #49b69c;
   --clr-green: #4eaf5e;
-  --clr-darker: #221F2D;
+  --clr-darker: #221f2d;
   --clr-red: #fc6e56;
   --clr-purple: #c0a9d6;
   --clr-text: #f0f0f0;
@@ -211,6 +217,17 @@ main {
   font-weight: var(--weight-medium);
 }
 
+/* styles for monthly final status section mobile */
+
+.monthly {
+  margin-top: var(--mm-big);
+}
+
+.monthly__title {
+  font-size: var(--fzm-big);
+  margin-bottom: var(--mm-small);
+}
+
 /* styles for expenses section mobile */
 
 .expenses {
@@ -317,7 +334,6 @@ main {
 /* styles for tablets */
 
 @media (min-width: 768px) {
-
   /* styles for header/nav tablets */
 
   header {
@@ -456,8 +472,7 @@ main {
 /* styles for desktop tablets */
 
 @media (min-width: 1190px) {
-
-/* styles for header/nav section desktop */
+  /* styles for header/nav section desktop */
 
   header {
     height: 0;
@@ -484,12 +499,12 @@ main {
   }
 
   .nav__divider {
-    height: 90%;
+    height: 97%;
   }
 
   .nav__ul {
     margin: 4rem auto 1rem auto;
-    font-size: var(--fzm-medium);
+    font-size: var(--fzd-medium);
   }
 
   .nav__a {
@@ -500,7 +515,7 @@ main {
     background: var(--clr-purple);
     border-radius: 1rem;
     color: var(--clr-black);
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
   }
 
   .new__transaction-phone {
@@ -509,9 +524,13 @@ main {
 
   .new__transaction-desktop {
     position: absolute;
-    top: 2rem;
-    right: 3rem;
+    top: 3rem;
+    right: 3.4rem;
     z-index: 342534;
+  }
+
+  .new__transaction {
+    font-size: var(--fzt-medium);
   }
 
   /* styles for main section desktop */
@@ -523,11 +542,17 @@ main {
   }
 
   .wallet__title {
-    font-size: var(--fzm-big);
+    font-size: var(--fzd-big);
   }
 
   .wallet__card {
     font-size: var(--fzm-medium);
+  }
+
+  /* styles for monthly final status section desktop */
+
+  .monthly__title {
+    font-size: var(--fzd-big);
   }
 
   /* styles for expenses section desktop */
@@ -539,7 +564,7 @@ main {
     top: 0;
     display: flex;
     flex-direction: column;
-    border-left: var(--clr-darker) solid 3px;
+    border-left: var(--clr-darker) solid 2px;
   }
 
   .expenses {
@@ -547,7 +572,7 @@ main {
   }
 
   .expenses__title {
-    font-size: var(--fzt-medium);
+    font-size: var(--fzd-big);
   }
 
   .expenses__periods {
@@ -562,6 +587,10 @@ main {
     font-size: var(--fzm-small);
   }
 
+  .graphic__p {
+    margin-bottom: 1.5rem;
+  }
+
   .expenses__active {
     background: var(--clr-purple);
   }
@@ -569,7 +598,7 @@ main {
   /* styles for recents section desktop */
 
   .recents__title {
-    font-size: var(--fzt-medium);
+    font-size: var(--fzd-big);
   }
 
   .recents__divider {
@@ -589,7 +618,7 @@ main {
   }
 
   .footer__p {
-    font-size: var(--fzm-medium);
+    font-size: var(--fzd-medium);
   }
 
   .footer__heart {
@@ -598,22 +627,10 @@ main {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
 /* styles for bigger screens */
 
-
 @media (min-width: 1600px) {
-
-/* make body grid to center everything */
+  /* make body grid to center everything */
 
   body {
     display: grid;
@@ -634,7 +651,7 @@ main {
   }
 
   .new__transaction-wrapper {
-    top: 0;
+    top: 5rem;
     left: -1.5rem;
   }
 }

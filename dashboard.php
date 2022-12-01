@@ -78,6 +78,13 @@
 
     </div>
 
+    <div class="monthly">
+      <h2 class="monthly__title">Monthly final status</h2>
+      <div class="monthly__graphic-container">
+        <canvas id="barChart" class="monthly__graphic"></canvas>
+      </div>
+    </div>
+
     <div class="expenses__recents-wrapper">
       <div class="new__transaction-wrapper new__transaction-desktop">
         <p class="new__transaction">
