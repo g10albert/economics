@@ -1,0 +1,147 @@
+/* styles for main section mobile */
+
+main {
+  margin: var(--mm-sides);
+}
+
+.form__label {
+  font-size: var(--fzm-big);
+  margin-bottom: 1.5rem;
+}
+
+option {
+  background: var(--clr-bg);
+  color: var(--clr-text);
+}
+
+.form__input {
+  font-size: var(--fzm-medium);
+  border-bottom: 2px solid var(--clr-darker);
+  width: 80%;
+  padding: 1rem;
+}
+
+.form__input:focus {
+  outline: none;
+}
+
+.form__wrapper {
+  margin-bottom: 3rem;
+}
+
+.form__select {
+  font-size: var(--fzm-medium);
+  border-bottom: 2px solid var(--clr-darker);
+  width: 80%;
+  padding: 1rem;
+}
+
+.form__select:focus {
+  outline: none;
+}
+
+.form__button {
+  font-size: var(--fzm-medium);
+  background: var(--clr-purple);
+  padding: var(--pm-small);
+  border-radius: 1rem;
+}
+
+/* styles for tablets */
+
+@media (min-width: 768px) {
+  /* styles for main section tablets */
+
+  main {
+    margin: var(--mt-sides);
+  }
+
+  .form {
+    display: block;
+    text-align: center;
+  }
+
+  form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .form__label {
+    font-size: var(--fzt-big);
+    margin-bottom: 2rem;
+  }
+
+  .form__input {
+    width: 100%;
+    font-size: var(--fzt-medium);
+  }
+
+  .form__select {
+    width: 100%;
+    font-size: var(--fzt-medium);
+  }
+
+  .form__button {
+    font-size: var(--fzt-medium);
+    margin: 4rem auto 0 auto;
+    padding: var(--pt-small) var(--pt-big);
+    border-radius: 1rem;
+  }
+}
+
+/* styles for desktop tablets */
+
+@media (min-width: 1190px) {
+  /* styles for main section desktop */
+
+  main {
+    margin-left: 60rem;
+    margin-right: 40rem;
+    margin-top: 10rem;
+  }
+
+  .form {
+    display: block;
+    text-align: center;
+  }
+
+  form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .form__label {
+    font-size: var(--fzd-big);
+    margin-bottom: 1rem;
+  }
+
+  .form__input {
+    font-size: var(--fzd-medium);
+  }
+
+  .form__select {
+    font-size: var(--fzd-medium);
+  }
+
+  .form__button {
+    font-size: var(--fzt-medium);
+    margin: 4rem auto 0 auto;
+    padding: var(--pm-small) var(--pt-big);
+    border-radius: 1rem;
+  }
+}
+
+/* styles for bigger screens */
+
+@media (min-width: 1600px) {
+  /* make body grid to center everything */
+
+  body {
+    display: grid;
+    justify-content: center;
+  }
+}
