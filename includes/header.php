@@ -6,13 +6,12 @@
       <div class="nav__divider">
         <ul class="nav__ul-u nav__ul">
           <li class="nav__li">
-            <!-- <a href="../pages/dashboard.php" class="nav__a nav__a-active"> -->
             <a href="../pages/dashboard.php" class="nav__a <?php if ($page == "dashboard") {echo "nav__a-active";} ?>">
               <iconify-icon class="nav__icon" icon="bxs:dashboard"></iconify-icon>Dashboard
             </a>
           </li>
           <li class="nav__li">
-            <a href="#" class="nav__a <?php if ($page == "mywallets") {echo "nav__a-active";} ?>">
+            <a href="../pages/my_wallets.php" class="nav__a <?php if ($page == "mywallets") {echo "nav__a-active";} ?>">
               <iconify-icon class="nav__icon" icon="akar-icons:wallet"></iconify-icon>My wallets
             </a>
           </li>

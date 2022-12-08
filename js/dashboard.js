@@ -17,7 +17,7 @@ fetch("http://localhost/api/wallets_api.php")
   .then((data) => {
     for (let i = 0; i < 2; i++) {
       let itemWallet = `
-      <div class="wallet__card">
+      <div class="wallet__card" style="background:${data[i].color}">
         <div class="wallet__top">
           <p class="wallet__p-gray">${data[i].type}</p>
           <p class="wallet__p">${data[i].name}</p>
@@ -344,7 +344,6 @@ fetch("http://localhost/api/transactions_api.php")
   })
   .then((data) => {
     for (let i = 0; i < 3; i++) {
-      console.log(data[i]);
       if (data[i].income_or_outcome == 1) {
         color = "recents__income";
       } else {

@@ -6,9 +6,18 @@ main {
 
 /* styles for wallet section mobile */
 
+.wallet__header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .wallet__title {
   font-size: var(--fzm-big);
   margin-bottom: var(--mm-small);
+}
+
+.wallet__p {
+  font-size: var(--fzm-small);
 }
 
 .wallet__card {
@@ -20,6 +29,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  position: relative;
 }
 
 .wallet__top {
@@ -36,15 +46,10 @@ main {
   font-weight: var(--weight-medium);
 }
 
-/* styles for monthly final status section mobile */
-
-.monthly {
-  margin-top: var(--mm-big);
-}
-
-.monthly__title {
-  font-size: var(--fzm-big);
-  margin-bottom: var(--mm-small);
+.wallet__a {
+  position: absolute;
+  right: 3rem;
+  bottom: 3rem;
 }
 
 /* styles for expenses section mobile */
@@ -136,7 +141,6 @@ main {
 /* styles for tablets */
 
 @media (min-width: 768px) {
-
   /* styles for main section tablets */
 
   main {
@@ -148,15 +152,18 @@ main {
     margin-bottom: var(--mt-small);
   }
 
+  .wallet__p {
+    font-size: var(--fzt-medium);
+  }
+
   .wallet {
-    display: flex;
-    gap: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1.5rem;
   }
 
   .wallet__card {
-    flex: 1 1 0px;
     font-size: var(--fzt-medium);
-    margin-bottom: var(--mt-small);
     min-height: 18rem;
     padding: var(--pt-card);
   }
@@ -214,13 +221,11 @@ main {
   .recents__icon {
     margin: var(--mt-icon);
   }
-
 }
 
 /* styles for desktop tablets */
 
 @media (min-width: 1190px) {
-
   /* styles for main section desktop */
 
   main {
@@ -233,14 +238,12 @@ main {
     font-size: var(--fzd-big);
   }
 
-  .wallet__card {
-    font-size: var(--fzm-medium);
+  .wallet__p {
+    font-size: var(--fzd-medium);
   }
 
-  /* styles for monthly final status section desktop */
-
-  .monthly__title {
-    font-size: var(--fzd-big);
+  .wallet__card {
+    font-size: var(--fzm-medium);
   }
 
   /* styles for expenses section desktop */
