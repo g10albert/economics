@@ -3,10 +3,8 @@
 
 <head>
     <?php
-
-    use LDAP\Result;
-
-    include_once('../includes/head.php') ?>
+    include_once('../includes/head.php')
+    ?>
     <link rel="stylesheet" href="../css/new_wallet.css" />
 </head>
 
@@ -30,6 +28,7 @@ if (isset($_GET['id'])) {
         $color = $row['color'];
     }
 }
+
 if (isset($_POST['update'])) {
     $id = $_GET['id'];
     $name = $_POST['name'];
@@ -45,6 +44,18 @@ if (isset($_POST['update'])) {
     } else {
     }
 }
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+}
+if (isset($_POST['delete'])) {
+    $sql = "DELETE FROM wallets WHERE id = $id";
+    $result = mysqli_query($con, $sql);
+    if (!$result) {
+        die("Query failed");
+    }
+    header('Location:../pages/my_wallets.php');
+}
 ?>
 
 <body>
@@ -52,7 +63,7 @@ if (isset($_POST['update'])) {
     <main>
 
         <div class="form">
-            <form action="" method="post" autocomplete="off">
+            <form id="form" action="" method="post" autocomplete="off">
                 <div class="form__elements">
                     <div class="form__name form__wrapper">
                         <label class="form__label" for="name">Name</label>
@@ -78,6 +89,10 @@ if (isset($_POST['update'])) {
                     <div class="form__save form__wrapper">
                         <button class="form__button" type="submit" name="update">Update</button>
                     </div>
+                    <div class="form__delete form__wrapper">
+                        <button class="form__button form__button-delete" type="submit" name="">Delete</button>
+                        <button class="actually__delete" style="display: none" type="submit" name="delete">Delete</button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -91,8 +106,31 @@ if (isset($_POST['update'])) {
     include_once('../includes/scripts.php')
     ?>
 
-    <!-- LINK TO MY TRANSACTIONS JS FILE -->
-    <!-- <script src="../js/new__wallet.js" type="module"></script> -->
+    <!-- LINK TO MY NEW WALLET JS FILE -->
+    <script src="../js/new_wallet.js" type="module"></script>
 </body>
+
+<script>
+    $('.form__button-delete').click(function(e) {
+        e.preventDefault();
+        Swal.fire({
+            title: "Do you want to delete this wallet?",
+            showDenyButton: true,
+            confirmButtonText: "Yes",
+            denyButtonText: "No",
+            customClass: {
+                actions: "my-actions",
+                confirmButton: "order-2",
+                denyButton: "order-3",
+            },
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $('.actually__delete').click();
+            } else if (result.isDenied) {
+                Swal.fire("The wallet wasn't deleted", "", "");
+            }
+        });
+    })
+</script>
 
 </html>

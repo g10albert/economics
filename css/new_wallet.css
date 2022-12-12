@@ -53,6 +53,10 @@
     border-radius: 1rem;
     width: 100%;
   }
+
+  .form__button-delete {
+    background: var(--clr-red);
+  }
   
   /* styles for tablets */
   

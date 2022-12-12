@@ -24,7 +24,7 @@ fetch("http://localhost/api/wallets_api.php")
         </div>
         <p class="wallet__p">Balance</p>
         <p class="wallet__p-price">${formatter.format(data[i].balance)}</p>
-        <a class="wallet__a" href="./update_wallet.php?id=${
+        <a class="wallet__a" href="./edit_wallet.php?id=${
           data[i].id
         }"><iconify-icon icon="material-symbols:edit"></iconify-icon></a>
       </div>
