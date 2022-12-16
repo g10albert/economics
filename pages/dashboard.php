@@ -1,5 +1,14 @@
-<?php $page = 'dashboard' ?>
+<?php 
 
+$page = 'dashboard';
+
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+  header("Location: ../login/index.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +39,7 @@
 
     <div class="expenses__recents-wrapper">
       <div class="new__transaction-wrapper new__transaction-desktop">
-        <a href="./new_transaction.php" class="new__transaction">
+        <a href="../new_pages/new_transaction.php" class="new__transaction">
           New transaction<iconify-icon icon="grommet-icons:transaction" class="new__transaction"></iconify-icon>
         </a>
       </div>
@@ -70,7 +79,7 @@
 
   <?php
   include_once('../includes/footer.php');
-  include_once('../includes/scripts.php')
+  include_once('../includes/scripts.php');
   ?>
 
   <!-- LINK TO MY JS FILE -->

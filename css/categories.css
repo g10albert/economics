@@ -4,47 +4,37 @@ main {
   margin: var(--mm-sides);
 }
 
-/* styles for wallet section mobile */
+/* styles for category section mobile */
 
-.wallet__title {
-  font-size: var(--fzm-big);
-  margin-bottom: var(--mm-small);
-}
-
-.wallet__card {
-  font-size: var(--fzm-medium);
-  margin-bottom: var(--mm-small);
-  min-height: 15rem;
-  padding: var(--pm-card);
-  border-radius: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.wallet__top {
+.category__header {
   display: flex;
   justify-content: space-between;
 }
 
-.wallet__p-gray {
-  color: rgb(51, 51, 51);
-}
-
-.wallet__p-price {
+.category__title {
   font-size: var(--fzm-big);
-  font-weight: var(--weight-medium);
+  margin-bottom: var(--mm-big);
 }
 
-/* styles for monthly final status section mobile */
-
-.monthly {
-  margin-top: var(--mm-big);
+.category__new {
+  font-size: var(--fzm-small);
 }
 
-.monthly__title {
-  font-size: var(--fzm-big);
+.category__p {
+  font-size: var(--fzm-medium);
+}
+
+.category__a {
+  font-size: var(--fzm-small);
+}
+
+.category__card {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: var(--mm-small);
+  background: var(--clr-darker);
+  padding: var(--pm-small) var(--pm-medium);
+  border-radius: 1rem;
 }
 
 /* styles for expenses section mobile */
@@ -136,34 +126,34 @@ main {
 /* styles for tablets */
 
 @media (min-width: 768px) {
-
   /* styles for main section tablets */
 
   main {
     margin: var(--mt-sides);
   }
 
-  .wallet__title {
+  .category__title {
     font-size: var(--fzt-big);
-    margin-bottom: var(--mt-small);
+    margin-bottom: var(--mt-medium);
   }
 
-  .wallet {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 1.5rem;
-  }
-
-  .wallet__card {
-    flex: 1 1 0px;
+  .category__new {
     font-size: var(--fzt-medium);
-    margin-bottom: var(--mt-small);
-    min-height: 18rem;
+  }
+
+  .category__p {
+    font-size: var(--fzt-medium);
+  }
+
+  .category__card {
+    font-size: var(--fzt-medium);
     padding: var(--pt-card);
   }
 
-  .wallet__p-price {
-    font-size: var(--fzt-medium);
+  .category {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1.5rem;
   }
 
   /* styles for expenses section tablets */
@@ -215,13 +205,11 @@ main {
   .recents__icon {
     margin: var(--mt-icon);
   }
-
 }
 
-/* styles for desktop tablets */
+/* styles for desktop */
 
 @media (min-width: 1190px) {
-
   /* styles for main section desktop */
 
   main {
@@ -230,18 +218,20 @@ main {
     margin-top: 10rem;
   }
 
-  .wallet__title {
+  .category__title {
     font-size: var(--fzd-big);
   }
 
-  .wallet__card {
+  .category__new {
+    font-size: var(--fzd-medium);
+  }
+
+  .category__p {
+    font-size: var(--fzd-medium);
+  }
+
+  .category__card {
     font-size: var(--fzm-medium);
-  }
-
-  /* styles for monthly final status section desktop */
-
-  .monthly__title {
-    font-size: var(--fzd-big);
   }
 
   /* styles for expenses section desktop */

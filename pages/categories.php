@@ -1,12 +1,5 @@
 <?php
-$page = 'mywallets';
-
-session_start();
-
-if (!isset($_SESSION['user_id'])) {
-  header("Location: ../login/index.php");
-}
-
+$page = 'categories';
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
 
 <head>
     <?php include_once('../includes/head.php') ?>
-    <link rel="stylesheet" href="../css/my_wallets.css" />
+    <link rel="stylesheet" href="../css/categories.css" />
 </head>
 
 
@@ -23,13 +16,13 @@ if (!isset($_SESSION['user_id'])) {
     <?php include_once('../includes/header.php') ?>
 
     <main>
-        <div class="wallet__header">
-            <h2 class="wallet__title">My wallets</h2>
-            <a href="../new_pages/new_wallet.php" class="wallet__p">New wallet</a>
+        <div class="category__header">
+            <h2 class="category__title">My categories</h2>
+            <a href="../new_pages/new_category.php" class="category__new">New category</a>
         </div>
-        <div class="wallet" id="wallets">
+        <div class="category" id="categories">
 
-            <!-- element that is going to have the wallet cards -->
+            <!-- element that is going to have the category cards -->
 
         </div>
 
@@ -78,8 +71,8 @@ if (!isset($_SESSION['user_id'])) {
     include_once('../includes/scripts.php')
     ?>
 
-    <!-- LINK TO MY JS FILE -->
-    <script src="../js/my_wallets.js" type="module"></script>
+    <!-- LINK TO MY CATEGORIES FILE -->
+    <script src="../js/categories.js" type="module"></script>
 </body>
 
 </html>

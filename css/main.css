@@ -95,6 +95,10 @@ body {
   font-weight: 500;
 }
 
+::placeholder {
+  color: var(--clr-text);
+}
+
 /* styles for header/nav mobile */
 
 header {

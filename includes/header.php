@@ -16,12 +16,12 @@
             </a>
           </li>
           <li class="nav__li">
-            <a href="#" class="nav__a <?php if ($page == "categories") {echo "nav__a-active";} ?>">
+            <a href="../pages/categories.php" class="nav__a <?php if ($page == "categories") {echo "nav__a-active";} ?>">
               <iconify-icon class="nav__icon" icon="carbon:categories"></iconify-icon>Categories
             </a>
           </li>
           <li class="nav__li">
-            <a href="#" class="nav__a <?php if ($page == "transanctions") {echo "nav__a-active";} ?>">
+            <a href="../pages/transactions.php" class="nav__a <?php if ($page == "transanctions") {echo "nav__a-active";} ?>">
               <iconify-icon class="nav__icon" icon="grommet-icons:transaction"></iconify-icon>Transactions
             </a>
           </li>
@@ -37,13 +37,13 @@
               <iconify-icon class="nav__icon" icon="carbon:phone"></iconify-icon>Contact us
             </a>
           </li>
-          <li class="nav__li">
+          <!-- <li class="nav__li">
             <a href="#" class="nav__a">
               <iconify-icon class="nav__icon" icon="carbon:settings"></iconify-icon>Settings
             </a>
-          </li>
+          </li> -->
           <li class="nav__li">
-            <a href="#" class="nav__a">
+            <a href="../login/logout.php" class="nav__a">
               <iconify-icon class="nav__icon" icon="fluent-mdl2:leave"></iconify-icon>Log Out
             </a>
           </li>

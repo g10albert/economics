@@ -1,4 +1,4 @@
-const wallets = document.getElementById("wallets");
+const categories = document.getElementById("categories");
 const recents = document.getElementById("recents");
 const categoryDay = document.querySelector("#expense_day");
 const categoryWeek = document.querySelector("#expense_week");
@@ -10,26 +10,19 @@ let totalByTime = 0;
 
 // Fetch Wallets
 
-fetch("http://localhost/api/wallets_api.php")
+fetch("http://localhost/api/categories_api.php")
   .then((response) => {
     return response.json();
   })
   .then((data) => {
     for (let i = 0; i < data.length; i++) {
       let itemWallet = `
-      <div class="wallet__card" style="background:${data[i].color}">
-        <div class="wallet__top">
-          <p class="wallet__p-gray">${data[i].type}</p>
-          <p class="wallet__p">${data[i].name}</p>
-        </div>
-        <p class="wallet__p">Balance</p>
-        <p class="wallet__p-price">${formatter.format(data[i].balance)}</p>
-        <a class="wallet__a" href="../edit_pages/edit_wallet.php?id=${
-          data[i].id
-        }"><iconify-icon icon="material-symbols:edit"></iconify-icon></a>
+      <div class="category__card">
+        <p class="category__p">${data[i].name}</p>
+        <a class="category__a" href="../edit_pages/edit_category.php?id=${data[i].id}"><iconify-icon icon="material-symbols:edit"></iconify-icon></a>
       </div>
       `;
-      wallets.innerHTML += itemWallet;
+      categories.innerHTML += itemWallet;
     }
   });
 

@@ -1,10 +1,22 @@
-/* styles for main section mobile */
+/* styles for category section mobile */
 
-.new__transaction-wrapper {
-  display: none;
+.category__p {
+  font-size: var(--fzm-medium);
 }
 
-main {
+.category__a {
+  font-size: var(--fzm-small);
+}
+
+.category__card {
+  background: var(--clr-darker);
+  padding: var(--pm-small) var(--pm-medium);
+  border-radius: 1rem;
+}
+
+/* styles for main section mobile */
+  
+  main {
   margin: var(--mm-sides);
 }
 
@@ -20,8 +32,6 @@ option {
 
 .form__input {
   font-size: var(--fzm-medium);
-  border-bottom: 2px solid var(--clr-darker);
-  width: 80%;
   padding: 1rem;
 }
 
@@ -35,13 +45,18 @@ option {
 
 .form__select {
   font-size: var(--fzm-medium);
-  border-bottom: 2px solid var(--clr-darker);
   width: 80%;
   padding: 1rem;
 }
 
 .form__select:focus {
   outline: none;
+}
+
+.form__color {
+  margin: auto;
+  height: 50px;
+  width: 100%;
 }
 
 .form__button {

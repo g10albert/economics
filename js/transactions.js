@@ -1,4 +1,4 @@
-const wallets = document.getElementById("wallets");
+const transactions = document.getElementById("transactions");
 const recents = document.getElementById("recents");
 const categoryDay = document.querySelector("#expense_day");
 const categoryWeek = document.querySelector("#expense_week");
@@ -10,26 +10,55 @@ let totalByTime = 0;
 
 // Fetch Wallets
 
-fetch("http://localhost/api/wallets_api.php")
+let color;
+
+fetch("http://localhost/api/transactions_api.php")
   .then((response) => {
     return response.json();
   })
   .then((data) => {
+    console.log(data);
     for (let i = 0; i < data.length; i++) {
+      let description = data[i].description;
+      if (description != "") {
+        description = "Description: " + data[i].description;
+      } else {
+        description = "No description";
+      }
+      if (data[i].income_or_outcome == 1) {
+        color = "recents__income";
+      } else {
+        color = "recents__outcome";
+      }
       let itemWallet = `
-      <div class="wallet__card" style="background:${data[i].color}">
-        <div class="wallet__top">
-          <p class="wallet__p-gray">${data[i].type}</p>
-          <p class="wallet__p">${data[i].name}</p>
-        </div>
-        <p class="wallet__p">Balance</p>
-        <p class="wallet__p-price">${formatter.format(data[i].balance)}</p>
-        <a class="wallet__a" href="../edit_pages/edit_wallet.php?id=${
-          data[i].id
-        }"><iconify-icon icon="material-symbols:edit"></iconify-icon></a>
-      </div>
+      <div class="transaction__item ${color}">
+                <div class="transaction__top">
+                    <p class="transaction__p">
+                        <iconify-icon icon="grommet-icons:transaction" class="transaction__icon"></iconify-icon>${
+                          data[i].category
+                        }
+                    </p>
+                    <p class="transaction__p-price">${formatter.format(
+                      data[i].amount
+                    )}</p>
+                </div>
+                <div class="transaction__description">
+                    <p class="transaction__p-price">${description}</p>
+                </div>
+                <div class="transaction__date">
+                    <p class="transaction__p-price">Date: ${data[i].date}</p>
+                </div>
+                <div class="transaction__wallet">
+                    <p class="transaction__p-price">Wallet: ${
+                      data[i].wallet
+                    }</p>
+                    <a class="transaction__a" href="../edit_pages/edit_transaction.php?id=${
+                      data[i].id
+                    }"><iconify-icon icon="material-symbols:edit"></iconify-icon></a>
+                </div>
+            </div>
       `;
-      wallets.innerHTML += itemWallet;
+      transactions.innerHTML += itemWallet;
     }
   });
 
@@ -147,20 +176,17 @@ categoryMonth.addEventListener("click", () => {
 
 // Fetch recent transactions
 
-let color;
-
 fetch("http://localhost/api/transactions_api.php")
   .then((response) => {
     return response.json();
   })
-  .then((data) => {
+  .then((data) => {    
     for (let i = 0; i < 3; i++) {
       if (data[i].income_or_outcome == 1) {
         color = "recents__income";
       } else {
         color = "recents__outcome";
       }
-
       let itemTransaction = `
       <div class="recents__item ${color}">
           <p class="recents__p">

@@ -12,6 +12,10 @@
 
 session_start();
 
+if (!isset($_SESSION['user_id'])) {
+  header("Location: ../login/index.php");
+}
+
 include_once("../../api/connection.php");
 
 $con = mysqli_connect("localhost", "root", "", "economics");
@@ -65,26 +69,21 @@ if (isset($_POST['delete'])) {
         <div class="form">
             <form id="form" action="" method="post" autocomplete="off">
                 <div class="form__elements">
-                    <div class="form__name form__wrapper">
-                        <label class="form__label" for="name">Name</label>
-                        <input class="form__input" type="text" value="<?php echo $name; ?>" name="name" id="name" required>
-                    </div>
-                    <div class="form__type form__wrapper">
-                        <label class="form__label" for="type">Type</label>
-                        <select class="form__select" name="type" id="type" required>
-                            <option value="<?php echo $type; ?>"> <?php echo $type; ?> </option>
-                            <option value="Credit">Credit</option>
-                            <option value="Debit">Debit</option>
-                            <option value="Cash">Cash</option>
-                        </select>
-                    </div>
-                    <div class="form__balance form__wrapper">
-                        <label class="form__label" for="balance">Balance</label>
-                        <input class="form__input" type="number" value="<?php echo $balance; ?>" name="balance" id="balance" autocomplete="off" required>
-                    </div>
-                    <div class="form__color form__wrapper">
-                        <label class="form__label" for="color">Color</label>
-                        <input class="form__input form__color" value="<?php echo $color; ?>" type="color" name="color" id="color">
+                    <div class="wallet__card">
+                        <div class="wallet__top">
+                            <select class="form__select wallet__p-gray" name="type" id="type" required>
+                                <option value="<?php echo $type; ?>"> <?php echo $type; ?> </option>
+                                <option value="Credit">Credit</option>
+                                <option value="Debit">Debit</option>
+                                <option value="Cash">Cash</option>
+                            </select>
+                            <input class="form__input form__name wallet__p" type="text" value="<?php echo $name; ?>" name="name" id="name" required placeholder="Name">
+                        </div>
+                        <p class="wallet__p wallet__initial">Initial balance</p>
+                        <input class="form__input wallet__p-price" value="<?php echo $balance; ?>" type="number" name="balance" id="balance" autocomplete="off" required placeholder="$0">
+                        <div class="select__color">
+                            <input class="form__input form__color" value="<?php echo $color; ?>" type="color" name="color" id="color">
+                        </div>
                     </div>
                     <div class="form__save form__wrapper">
                         <button class="form__button" type="submit" name="update">Update</button>

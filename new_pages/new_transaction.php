@@ -10,6 +10,12 @@
 
 session_start();
 
+if (!isset($_SESSION['user_id'])) {
+  header("Location: ../login/index.php");
+}
+
+$user_id = $_SESSION['user_id'];
+
 include_once("../../api/connection.php");
 
 $con = mysqli_connect("localhost", "root", "", "economics");
@@ -24,9 +30,9 @@ if (isset($_POST['save'])) {
     $income_or_expense = $_POST['income_or_expense'];
 
     if (!empty($amount) && !empty($category) && !empty($date) && !empty($wallet)) {
-        $sql = "INSERT INTO `transactions` (`name`, `amount`, `income_or_outcome`, `date`, `category`, `description`) VALUES ('$name', '$amount', '$income_or_expense', '$date', '$category', '$description')";
+        $sql = "INSERT INTO `transactions` (`name`, `amount`, `income_or_outcome`, `date`, `category`, `description`, `wallet`, `user_id`) VALUES ('$name', '$amount', '$income_or_expense', '$date', '$category', '$description', '$wallet', '$user_id')";
 
-        if ($income_or_expense == 0) {
+        if ($income_or_expense == 2) {
             $sql2 = "UPDATE `wallets` SET `balance` = (balance - '$amount') WHERE `name` = '$wallet'";
         } else {
             $sql2 = "UPDATE `wallets` SET `balance` = (balance + '$amount') WHERE `name` = '$wallet'";
@@ -57,7 +63,7 @@ if (isset($_POST['save'])) {
                         <label class="form__label" for="category">Category</label>
                         <?php
                         if ($con) {
-                            $sql = "SELECT `name` FROM `categories`";
+                            $sql = "SELECT `name` FROM `categories` WHERE user_id = $user_id";
                             $result = mysqli_query($con, $sql);
                             if ($result) {
                                 $category = mysqli_fetch_all($result);
@@ -89,7 +95,7 @@ if (isset($_POST['save'])) {
                         <label class="form__label" for="wallet">Wallet</label>
                         <?php
                         if ($con) {
-                            $sql = "SELECT `name` FROM `wallets`";
+                            $sql = "SELECT `name` FROM `wallets` WHERE user_id = $user_id";
                             $result = mysqli_query($con, $sql);
                             if ($result) {
                                 $wallet = mysqli_fetch_all($result);
@@ -114,7 +120,7 @@ if (isset($_POST['save'])) {
                         <select class="form__select" name="income_or_expense" id="income_or_expense" required>
                             <option value="">Select one option</option>
                             <option value="1">Income</option>
-                            <option value="0">Expense</option>
+                            <option value="2">Expense</option>
                         </select>
                     </div>
                     <div class="form__save form__wrapper">

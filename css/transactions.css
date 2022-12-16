@@ -4,47 +4,67 @@ main {
   margin: var(--mm-sides);
 }
 
-/* styles for wallet section mobile */
+/* styles for transaction section mobile */
 
-.wallet__title {
-  font-size: var(--fzm-big);
-  margin-bottom: var(--mm-small);
-}
-
-.wallet__card {
-  font-size: var(--fzm-medium);
-  margin-bottom: var(--mm-small);
-  min-height: 15rem;
-  padding: var(--pm-card);
-  border-radius: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.wallet__top {
+.transaction__header {
   display: flex;
   justify-content: space-between;
 }
 
-.wallet__p-gray {
-  color: rgb(51, 51, 51);
+.transaction__title {
+  font-size: var(--fzm-medium);
+  margin-bottom: var(--mm-big);
 }
 
-.wallet__p-price {
-  font-size: var(--fzm-big);
-  font-weight: var(--weight-medium);
+.transaction__new {
+  font-size: var(--fzm-small);
 }
 
-/* styles for monthly final status section mobile */
-
-.monthly {
-  margin-top: var(--mm-big);
+.transaction__p {
+  font-size: var(--fzm-medium);
 }
 
-.monthly__title {
-  font-size: var(--fzm-big);
+.transaction__p-price {
+  font-size: var(--fzm-small);
+}
+
+.transaction__icon {
+  margin: 0 1rem -0.5rem 0;
+}
+
+.transaction__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   margin-bottom: var(--mm-small);
+  background: var(--clr-darker);
+  padding: var(--pm-medium) var(--pm-medium);
+  border-radius: 1rem;
+}
+
+.transaction__top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.transaction__description {
+  margin: 1rem 0 2rem 0;
+  line-height: 1;
+}
+
+.transaction__date {
+  margin-bottom: 2rem;
+}
+
+.transaction__wallet {
+  display: flex;
+  justify-content: space-between;
+}
+
+.transaction__a {
+  font-size: var(--fzm-small);
 }
 
 /* styles for expenses section mobile */
@@ -136,34 +156,41 @@ main {
 /* styles for tablets */
 
 @media (min-width: 768px) {
-
   /* styles for main section tablets */
 
   main {
     margin: var(--mt-sides);
   }
 
-  .wallet__title {
+  .transaction__title {
     font-size: var(--fzt-big);
-    margin-bottom: var(--mt-small);
+    margin-bottom: var(--mt-medium);
   }
 
-  .wallet {
+  .transaction__new {
+    font-size: var(--fzt-medium);
+  }
+
+  .transaction__p {
+    font-size: var(--fzt-medium);
+  }
+
+  .transaction__description {
+    margin: 1rem 0 2rem 0;
+  }
+
+  .transaction__p-price {
+    font-size: var(--fzm-medium);
+  }
+
+  .transaction {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0 1.5rem;
   }
 
-  .wallet__card {
-    flex: 1 1 0px;
-    font-size: var(--fzt-medium);
-    margin-bottom: var(--mt-small);
-    min-height: 18rem;
-    padding: var(--pt-card);
-  }
-
-  .wallet__p-price {
-    font-size: var(--fzt-medium);
+  .transaction__a {
+    font-size: var(--fzt-small);
   }
 
   /* styles for expenses section tablets */
@@ -215,13 +242,11 @@ main {
   .recents__icon {
     margin: var(--mt-icon);
   }
-
 }
 
-/* styles for desktop tablets */
+/* styles for desktop */
 
 @media (min-width: 1190px) {
-
   /* styles for main section desktop */
 
   main {
@@ -230,18 +255,28 @@ main {
     margin-top: 10rem;
   }
 
-  .wallet__title {
+  .transaction__title {
     font-size: var(--fzd-big);
   }
 
-  .wallet__card {
+  .transaction__new {
+    font-size: var(--fzd-medium);
+  }
+
+  .transaction__p {
+    font-size: var(--fzd-big);
+  }
+
+  .transaction__item {
     font-size: var(--fzm-medium);
   }
 
-  /* styles for monthly final status section desktop */
+  .transaction__description {
+    margin: 1rem 0 2rem 0;
+  }
 
-  .monthly__title {
-    font-size: var(--fzd-big);
+  .transaction__p-price {
+    font-size: var(--fzd-small);
   }
 
   /* styles for expenses section desktop */

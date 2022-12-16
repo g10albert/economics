@@ -1,0 +1,196 @@
+:root {
+  /* variables for colors */
+
+  --clr-bg: #f3f3f3;
+  --clr-blue: #679cc8;
+  --clr-aqua: #5ae2c3;
+  --clr-green: #63f17a;
+  --clr-darker: #e6e6e6;
+  --clr-red: #fc6e56;
+  --clr-purple: #e4c9ff;
+  --clr-black: #000000;
+  --clr-text: #000000;
+
+  /* variables for font family */
+
+  --ff-lato: Lato, sans-serif;
+  --ff-sans: Open Sans, sans-serif;
+
+  /* variables for font weight */
+
+  --weight-bold: 700;
+  --weight-medium: 500;
+
+  /* mobile variables */
+
+  --fzm-big: 3rem;
+  --fzm-medium: 2rem;
+  --fzm-small: 1.5rem;
+
+  --pm-big: 4rem;
+  --pm-medium: 2rem;
+  --pm-small: 1rem;
+  --pm-items: 1rem 1.5rem;
+  --pm-card: 2rem 3rem;
+
+  --mm-big: 4rem;
+  --mm-medium: 3rem;
+  --mm-small: 2rem;
+  --mm-icon: 0rem 1rem -0.3rem 0;
+  --mm-sides: 0 5rem;
+
+  /* tablet variables */
+
+  --fzt-big: 4rem;
+  --fzt-medium: 2.7rem;
+  --fzt-small: 2rem;
+
+  --pt-big: 4rem;
+  --pt-medium: 2rem;
+  --pt-small: 1.5rem;
+  --pt-items: 1.5rem 2rem;
+  --pt-card: 2rem 3rem;
+
+  --mt-big: 6rem;
+  --mt-medium: 4rem;
+  --mt-small: 2.7rem;
+  --mt-icon: 0rem 1rem -0.3rem 0;
+  --mt-sides: 0 8rem;
+
+  /* desktop variables */
+
+  --fzd-big: 2.3rem;
+  --fzd-medium: 1.7rem;
+  --fzd-small: 1.4rem;
+}
+
+/* Dark theme */
+
+[data-theme="dark"] {
+  --clr-bg: #2e2b3e;
+  --clr-blue: #679cc8;
+  --clr-aqua: #49b69c;
+  --clr-green: #4eaf5e;
+  --clr-darker: #221f2d;
+  --clr-red: #fc6e56;
+  --clr-purple: #c0a9d6;
+  --clr-text: #f0f0f0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dark_light {
+  position: absolute;
+  right: 5rem;
+  top: 3rem;
+  font-size: var(--fzm-small);
+}
+
+.dark_light-icon {
+  margin-bottom: -0.3rem;
+  margin: 0 0.5rem -0.3rem 0;
+}
+
+.logsignup {
+  text-align: center;
+  min-width: 90%;
+}
+
+.logsignup * {
+  margin-bottom: 2rem;
+  font-size: var(--fzm-small);
+}
+
+.logsignup_title {
+  font-size: var(--fzm-big);
+  margin-bottom: 5rem;
+}
+
+.logsignup__form {
+  text-align: center;
+}
+
+.logsignup__input {
+  background: var(--clr-darker);
+  padding: var(--pm-small);
+  border-radius: 1rem;
+  margin: 0 auto 2rem auto;
+  width: 70%;
+}
+
+.logsignup_message {
+  background: var(--clr-red);
+  padding: var(--pm-small);
+  border-radius: 1rem;
+  margin: 0 auto 2rem auto;
+  max-width: 70%;
+}
+
+.logsignup__button {
+  width: 70%;
+  background: var(--clr-purple);
+  margin: 0 auto 0 auto;
+  padding: var(--pm-small);
+  border-radius: 1rem;
+}
+
+.logsignup__or {
+  text-decoration: underline;
+  margin-top: 5rem;
+}
+
+@media (min-width: 768px) {
+  .dark_light {
+    right: 8rem;
+    top: 6rem;
+    font-size: var(--fzt-small);
+  }
+
+  .logsignup {
+    min-width: 60%;
+  }
+
+  .logsignup * {
+    font-size: var(--fzt-small);
+  }
+
+  .logsignup_title {
+    font-size: var(--fzt-big);
+  }
+
+  .logsignup__input {
+    padding: var(--pt-small);
+  }
+
+  .logsignup_message {
+    padding: var(--pt-small);
+    line-height: 1.1;
+  }
+
+  .logsignup__button {
+    padding: var(--pt-small);
+  }
+}
+
+@media (min-width: 1190px) {
+  .dark_light {
+    right: 5rem;
+    top: 3rem;
+  }
+
+  .logsignup {
+    min-width: 35%;
+  }
+
+  .logsignup * {
+    font-size: var(--fzd-medium);
+  }
+
+  .logsignup_title {
+    font-size: var(--fzt-big);
+  }
+}
