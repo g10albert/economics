@@ -37,10 +37,6 @@ main {
   justify-content: space-between;
 }
 
-.wallet__p-gray {
-  color: rgb(51, 51, 51);
-}
-
 .wallet__p-price {
   font-size: var(--fzm-big);
   font-weight: var(--weight-medium);

@@ -1,3 +1,7 @@
+<?php
+$page = "editwallet";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,8 +21,6 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 include_once("../../api/connection.php");
-
-$con = mysqli_connect("localhost", "root", "", "economics");
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -80,7 +82,7 @@ if (isset($_POST['delete'])) {
                             <input class="form__input form__name wallet__p" type="text" value="<?php echo $name; ?>" name="name" id="name" required placeholder="Name">
                         </div>
                         <p class="wallet__p wallet__initial">Initial balance</p>
-                        <input class="form__input wallet__p-price" value="<?php echo $balance; ?>" type="number" name="balance" id="balance" autocomplete="off" required placeholder="$0">
+                        <input class="form__input wallet__p-price" value="<?php echo $balance; ?>" type="number" step=".01" name="balance" id="balance" autocomplete="off" required placeholder="$0">
                         <div class="select__color">
                             <input class="form__input form__color" value="<?php echo $color; ?>" type="color" name="color" id="color">
                         </div>

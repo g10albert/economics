@@ -1,3 +1,7 @@
+<?php
+$page = "edittransaction";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,8 +23,6 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 
 include_once("../../api/connection.php");
-
-$con = mysqli_connect("localhost", "root", "", "economics");
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -148,7 +150,7 @@ if (isset($_POST['delete'])) {
                 <div class="form__elements">
                     <div class="form__amount form__wrapper">
                         <label class="form__label" for="amount">Amount<?php echo $income_or_outcome_data ?></label>
-                        <input class="form__input" value="<?php echo $amount_data; ?>" type="number" name="amount" id="amount" required min="0">
+                        <input class="form__input" value="<?php echo $amount_data; ?>" step=".01" type="number" name="amount" id="amount" required min="0">
                     </div>
                     <div class="form__category form__wrapper">
                         <label class="form__label" for="category">Category</label>

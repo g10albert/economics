@@ -6,12 +6,15 @@
   --clr-bg: #f3f3f3;
   --clr-blue: #679cc8;
   --clr-aqua: #5ae2c3;
-  --clr-green: #63f17a;
+  --clr-green: #58d86e;
   --clr-darker: #e6e6e6;
   --clr-red: #fc6e56;
   --clr-purple: #e4c9ff;
   --clr-black: #000000;
   --clr-text: #000000;
+  --clr-wave-1: #2e2b3e;
+  --clr-wave-2: #e2e2e2;
+  --clr-wave-text: #e2e2e2;
 
   /* variables for font family */
 
@@ -64,6 +67,16 @@
   --fzd-big: 2.3rem;
   --fzd-medium: 1.7rem;
   --fzd-small: 1.4rem;
+
+  /* images */
+
+  --img-dashboard: url(../assets/img/dashboard_light.png);
+  --img-mfs: url(../assets/img/MFS_light.png);
+  --img-wallets: url(../assets/img/wallets_light.png);
+  --img-categories: url(../assets/img/categories_light.png);
+  --img-transactions: url(../assets/img/transactions_light.png);
+  --img-recents: url(../assets/img/recents_light.png);
+  --img-expenses: url(../assets/img/expenses_light.png);
 }
 
 /* Dark theme */
@@ -77,6 +90,27 @@
   --clr-red: #fc6e56;
   --clr-purple: #c0a9d6;
   --clr-text: #f0f0f0;
+  --clr-wave-1: #e2e2e2;
+  --clr-wave-2: #2e2b3e;
+  --clr-wave-text: #2e2b3e;
+
+  /* images */
+
+  --img-dashboard: url(../assets/img/dashboard.png);
+  --img-mfs: url(../assets/img/MFS.png);
+  --img-wallets: url(../assets/img/wallets.png);
+  --img-categories: url(../assets/img/categories.png);
+  --img-transactions: url(../assets/img/transactions.png);
+  --img-recents: url(../assets/img/recents.png);
+  --img-expenses: url(../assets/img/expenses.png);
+}
+
+.wave__1 {
+  fill: var(--clr-wave-1);
+}
+
+.wave__2 {
+  fill: var(--clr-wave-2);
 }
 
 /* changing colors of selection depending on color scheme */
@@ -240,7 +274,6 @@ header {
     margin: 0 0 -0.5rem 2rem;
   }
 
-  
   /* styles for footer section tablets */
 
   .footer {
@@ -319,7 +352,6 @@ header {
     font-size: var(--fzt-medium);
   }
 
-  
   /* styles for footer section desktop */
 
   .footer {

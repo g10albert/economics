@@ -1,3 +1,7 @@
+<?php
+$page = "newtransaction";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,8 +21,6 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 
 include_once("../../api/connection.php");
-
-$con = mysqli_connect("localhost", "root", "", "economics");
 
 
 if (isset($_POST['save'])) {
@@ -41,7 +43,7 @@ if (isset($_POST['save'])) {
         $result = mysqli_query($con, $sql);
         $result2 = mysqli_query($con, $sql2);
 
-        header('Location:../pages/dashboard.php');
+        header('Location:../pages/transactions.php');
     } else {
     }
 }
@@ -57,7 +59,7 @@ if (isset($_POST['save'])) {
                 <div class="form__elements">
                     <div class="form__amount form__wrapper">
                         <label class="form__label" for="amount">Amount</label>
-                        <input class="form__input" type="number" name="amount" id="amount" required min="0">
+                        <input class="form__input" type="number" step=".01" name="amount" id="amount" required min="0">
                     </div>
                     <div class="form__category form__wrapper">
                         <label class="form__label" for="category">Category</label>

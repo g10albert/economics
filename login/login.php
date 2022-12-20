@@ -1,14 +1,16 @@
 <?php
 
+$page = "login";
+
 $message = '';
 
 session_start();
 
 if (isset($_SESSION['user_id'])) {
-    header("Location: ./index.php");
+    header("Location: ../pages/dashboard.php");
 }
 
-require_once "./database.php";
+include_once("../../api/connection.php");
 
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
@@ -46,6 +48,7 @@ if (isset($_POST['login'])) {
 <body>
     <div class="nav__btn-open" style="display:none;"></div>
     <div class="nav__btn-close" style="display:none;"></div>
+    <a href="./index.php" class="nav__logo">Economics</a>
     <div class="dark_light" id="toggle-theme">
         <a href="#" class="" id="toggle-theme">
             <iconify-icon class="dark_light-icon" icon="carbon:sun"></iconify-icon>Dark / Light

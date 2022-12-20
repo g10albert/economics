@@ -29,31 +29,35 @@ closeMenu.addEventListener("click", () => {
 
 // Creating the dark/light theme
 
-const setTheme = (theme) => {
-  localStorage.setItem("theme", theme);
-  body.setAttribute("data-theme", theme);
-};
+if (!document.querySelector("#toggle-theme")) {
+  body.setAttribute("data-theme", "dark");
+} else {
+  const setTheme = (theme) => {
+    localStorage.setItem("theme", theme);
+    body.setAttribute("data-theme", theme);
+  };
 
-toggleTheme.addEventListener("click", () => {
-  activeTheme = localStorage.getItem("theme");
+  toggleTheme.addEventListener("click", () => {
+    activeTheme = localStorage.getItem("theme");
 
-  if (activeTheme === "light") {
-    setTheme("dark");
-  } else {
-    setTheme("light");
-  }
-});
+    if (activeTheme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  });
 
-const setThemeOnInit = () => {
-  const savedTheme = localStorage.getItem("theme");
+  const setThemeOnInit = () => {
+    const savedTheme = localStorage.getItem("theme");
 
-  activeTheme = localStorage.getItem("theme");
+    activeTheme = localStorage.getItem("theme");
 
-  if (savedTheme) {
-    body.setAttribute("data-theme", savedTheme);
-  } else {
-    setTheme(initialTheme);
-  }
-};
+    if (savedTheme) {
+      body.setAttribute("data-theme", savedTheme);
+    } else {
+      setTheme(initialTheme);
+    }
+  };
 
-setThemeOnInit();
+  setThemeOnInit();
+}

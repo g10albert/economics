@@ -1,3 +1,7 @@
+<?php
+$page = "newwallet";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,8 +21,6 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 
 include_once("../../api/connection.php");
-
-$con = mysqli_connect("localhost", "root", "", "economics");
 
 if (isset($_POST['save'])) {
     $name = $_POST['name'];
@@ -57,7 +59,7 @@ if (isset($_POST['save'])) {
                             <input class="form__input form__name wallet__p" type="text" name="name" id="name" required placeholder="Name">
                         </div>
                         <p class="wallet__p wallet__initial">Initial balance</p>
-                        <input class="form__input wallet__p-price" type="number" name="balance" id="balance" autocomplete="off" required placeholder="$0">
+                        <input class="form__input wallet__p-price" type="number" min="1" step=".01" name="balance" id="balance" autocomplete="off" required placeholder="$0">
                         <div class="select__color">
                             <input class="form__input form__color" type="color" name="color" id="color">
                         </div>

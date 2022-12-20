@@ -1,3 +1,7 @@
+<?php
+$page = "editcategory";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,8 +21,6 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 include_once("../../api/connection.php");
-
-$con = mysqli_connect("localhost", "root", "", "economics");
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

@@ -1,91 +1,18 @@
-:root {
-  /* variables for colors */
-
-  --clr-bg: #f3f3f3;
-  --clr-blue: #679cc8;
-  --clr-aqua: #5ae2c3;
-  --clr-green: #63f17a;
-  --clr-darker: #e6e6e6;
-  --clr-red: #fc6e56;
-  --clr-purple: #e4c9ff;
-  --clr-black: #000000;
-  --clr-text: #000000;
-
-  /* variables for font family */
-
-  --ff-lato: Lato, sans-serif;
-  --ff-sans: Open Sans, sans-serif;
-
-  /* variables for font weight */
-
-  --weight-bold: 700;
-  --weight-medium: 500;
-
-  /* mobile variables */
-
-  --fzm-big: 3rem;
-  --fzm-medium: 2rem;
-  --fzm-small: 1.5rem;
-
-  --pm-big: 4rem;
-  --pm-medium: 2rem;
-  --pm-small: 1rem;
-  --pm-items: 1rem 1.5rem;
-  --pm-card: 2rem 3rem;
-
-  --mm-big: 4rem;
-  --mm-medium: 3rem;
-  --mm-small: 2rem;
-  --mm-icon: 0rem 1rem -0.3rem 0;
-  --mm-sides: 0 5rem;
-
-  /* tablet variables */
-
-  --fzt-big: 4rem;
-  --fzt-medium: 2.7rem;
-  --fzt-small: 2rem;
-
-  --pt-big: 4rem;
-  --pt-medium: 2rem;
-  --pt-small: 1.5rem;
-  --pt-items: 1.5rem 2rem;
-  --pt-card: 2rem 3rem;
-
-  --mt-big: 6rem;
-  --mt-medium: 4rem;
-  --mt-small: 2.7rem;
-  --mt-icon: 0rem 1rem -0.3rem 0;
-  --mt-sides: 0 8rem;
-
-  /* desktop variables */
-
-  --fzd-big: 2.3rem;
-  --fzd-medium: 1.7rem;
-  --fzd-small: 1.4rem;
-}
-
-/* Dark theme */
-
-[data-theme="dark"] {
-  --clr-bg: #2e2b3e;
-  --clr-blue: #679cc8;
-  --clr-aqua: #49b69c;
-  --clr-green: #4eaf5e;
-  --clr-darker: #221f2d;
-  --clr-red: #fc6e56;
-  --clr-purple: #c0a9d6;
-  --clr-text: #f0f0f0;
-}
-
 body {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.nav__logo {
+  position: absolute;
+  left: 3rem;
+  top: 3rem;
+}
+
 .dark_light {
   position: absolute;
-  right: 5rem;
+  right: 3rem;
   top: 3rem;
   font-size: var(--fzm-small);
 }

@@ -17,7 +17,6 @@ fetch("http://localhost/api/transactions_api.php")
     return response.json();
   })
   .then((data) => {
-    console.log(data);
     for (let i = 0; i < data.length; i++) {
       let description = data[i].description;
       if (description != "") {

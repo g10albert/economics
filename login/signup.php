@@ -1,20 +1,30 @@
 <?php
 
+$page = "signup";
+
 $message = '';
-require_once "./database.php";
+include_once("../../api/connection.php");
 
 session_start();
 
 if (isset($_SESSION['user_id'])) {
-    header("Location: ./index.php");
+    header("Location: ../pages/dashboard.php");
 }
+
+$regex_password = "/(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,}).*$/";
+
+// if (preg_match_all($regex_password, $str)) {
+    
+// }
 
 if (isset($_POST['register'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
-    if ($password != $confirm_password) {
+    if (!preg_match_all($regex_password, $password)) {
+        $message = 'The password needs at least one number and one capital letter';
+    } else if ($password != $confirm_password) {
         $message = 'The passwords do not match';
     } else {
         if (!empty($email) && !empty($password)) {
@@ -57,6 +67,7 @@ if (isset($_POST['register'])) {
 <body>
     <div class="nav__btn-open" style="display:none;"></div>
     <div class="nav__btn-close" style="display:none;"></div>
+    <a href="./index.php" class="nav__logo">Economics</a>
     <div class="dark_light" id="toggle-theme">
         <a href="#" class="" id="toggle-theme">
             <iconify-icon class="dark_light-icon" icon="carbon:sun"></iconify-icon>Dark / Light
@@ -65,7 +76,7 @@ if (isset($_POST['register'])) {
     <div class="logsignup">
         <h1 class="logsignup_title">Sign up</h1>
         <form class="logsignup__form" action="./signup.php" method="POST" autocomplete="off">
-            <input class="logsignup__email logsignup__input" type="text" value="<?php if (isset($email)) echo $email ?>" name="email" placeholder="Enter your email">
+            <input class="logsignup__email logsignup__input" type="email" value="<?php if (isset($email)) echo $email ?>" name="email" placeholder="Enter your email">
             <input class="logsignup__password logsignup__input" type="password" value="<?php if (isset($password)) echo $password ?>" name="password" placeholder="Enter your password">
             <input class="logsignup__password logsignup__input" type="password" value="<?php if (isset($confirm_password)) echo $confirm_password ?>" name="confirm_password" placeholder="Confirm password">
             <?php if (!empty($message)) : ?>

@@ -33,15 +33,10 @@
             </a>
           </li>
           <li class="nav__li">
-            <a href="#" class="nav__a">
-              <iconify-icon class="nav__icon" icon="carbon:phone"></iconify-icon>Contact us
+            <a href="mailto:albertmiguelg10@gmail.com" class="nav__a">
+              <iconify-icon class="nav__icon" icon="carbon:phone"></iconify-icon>Contact me
             </a>
           </li>
-          <!-- <li class="nav__li">
-            <a href="#" class="nav__a">
-              <iconify-icon class="nav__icon" icon="carbon:settings"></iconify-icon>Settings
-            </a>
-          </li> -->
           <li class="nav__li">
             <a href="../login/logout.php" class="nav__a">
               <iconify-icon class="nav__icon" icon="fluent-mdl2:leave"></iconify-icon>Log Out

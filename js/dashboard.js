@@ -8,6 +8,13 @@ let doughnutChart = null;
 let barChart = null;
 let totalByTime = 0;
 
+// Make hex color become rgba
+
+const hex2rgba = (hex, alpha = 1) => {
+  const [r, g, b] = hex.match(/\w\w/g).map((x) => parseInt(x, 16));
+  return `rgba(${r},${g},${b},${alpha})`;
+};
+
 // Fetch Wallets
 
 fetch("http://localhost/api/wallets_api.php")
@@ -17,7 +24,9 @@ fetch("http://localhost/api/wallets_api.php")
   .then((data) => {
     for (let i = 0; i < 2; i++) {
       let itemWallet = `
-      <div class="wallet__card" style="background:${data[i].color}">
+      <div class="wallet__card" style="background:${
+        data[i].color
+      }; color: ${getTextColor(hex2rgba(data[i].color))};">
         <div class="wallet__top">
           <p class="wallet__p-gray">${data[i].type}</p>
           <p class="wallet__p">${data[i].name}</p>
@@ -29,6 +38,15 @@ fetch("http://localhost/api/wallets_api.php")
       wallets.innerHTML += itemWallet;
     }
   });
+
+function getTextColor(rgba) {
+  rgba = rgba.match(/\d+/g);
+  if (rgba[0] * 0.299 + rgba[1] * 0.587 + rgba[2] * 0.114 > 186) {
+    return "black";
+  } else {
+    return "white";
+  }
+}
 
 // Create number formatter for the currencies.
 
@@ -222,7 +240,7 @@ fetch("http://localhost/api/transactions_api.php")
     });
     let chartColors = {
       red: "rgb(252, 110, 86)",
-      green: "rgb(99, 241, 122)",
+      green: "rgb(88, 216, 110)",
     };
 
     // change color of bar depending if there were more outcomes or incomes
