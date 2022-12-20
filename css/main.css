@@ -105,6 +105,37 @@
   --img-expenses: url(../assets/img/expenses.png);
 }
 
+.module {
+  background: var(--clr-darker) !important;
+  color: var(--clr-text) !important;
+  width: 90% !important;
+  height: 50% !important;
+}
+
+.swal2-title {
+  line-height: 1.2;
+  margin-top: 2rem !important;
+  font-size: 2rem !important;
+}
+
+.confirmButton {
+  background: var(--clr-green) !important;
+  color: var(--clr-text) !important;
+  font-size: 1.5rem !important;
+}
+
+.denyButton {
+  background: var(--clr-red) !important;
+  color: var(--clr-text) !important;
+  font-size: 1.5rem !important;
+}
+
+.resultBtn {
+  background: var(--clr-purple) !important;
+  color: var(--clr-text) !important;
+  font-size: 1.5rem !important;
+}
+
 .wave__1 {
   fill: var(--clr-wave-1);
 }
@@ -234,6 +265,27 @@ header {
 }
 
 @media (min-width: 768px) {
+  .module {
+    width: 50% !important;
+  }
+
+  .swal2-title {
+    margin-top: 4rem !important;
+    font-size: 2.4rem !important;
+  }
+
+  .confirmButton {
+    font-size: 2rem !important;
+  }
+
+  .denyButton {
+    font-size: 2rem !important;
+  }
+
+  .resultBtn {
+    font-size: 2rem !important;
+  }
+
   /* styles for header/nav tablets */
 
   header {
@@ -291,6 +343,19 @@ header {
 }
 
 @media (min-width: 1190px) {
+
+  .module {
+    background: var(--clr-darker) !important;
+    color: var(--clr-text) !important;
+    width: 25% !important;
+    height: 50% !important;
+  }
+  
+  .swal2-title {
+    margin-top: 2rem !important;
+    font-size: 2rem !important;
+  }
+
   /* styles for header/nav section desktop */
 
   header {

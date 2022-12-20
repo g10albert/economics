@@ -15,16 +15,16 @@ $page = "newtransaction";
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-  header("Location: ../login/index.php");
+    header("Location: ../login/index.php");
 }
 
 $user_id = $_SESSION['user_id'];
 
 include_once("../../api/connection.php");
 
-
 if (isset($_POST['save'])) {
     $amount = $_POST['amount'];
+    $newAmount = preg_replace('/[$,]/', '', $amount);
     $category = $_POST['category'];
     $description = $_POST['description'];
     $date = $_POST['date'];
@@ -32,12 +32,12 @@ if (isset($_POST['save'])) {
     $income_or_expense = $_POST['income_or_expense'];
 
     if (!empty($amount) && !empty($category) && !empty($date) && !empty($wallet)) {
-        $sql = "INSERT INTO `transactions` (`name`, `amount`, `income_or_outcome`, `date`, `category`, `description`, `wallet`, `user_id`) VALUES ('$name', '$amount', '$income_or_expense', '$date', '$category', '$description', '$wallet', '$user_id')";
+        $sql = "INSERT INTO `transactions` (`amount`, `income_or_outcome`, `date`, `category`, `description`, `wallet`, `user_id`) VALUES ('$newAmount', '$income_or_expense', '$date', '$category', '$description', '$wallet', '$user_id')";
 
         if ($income_or_expense == 2) {
-            $sql2 = "UPDATE `wallets` SET `balance` = (balance - '$amount') WHERE `name` = '$wallet'";
+            $sql2 = "UPDATE `wallets` SET `balance` = (balance - '$newAmount') WHERE `name` = '$wallet'";
         } else {
-            $sql2 = "UPDATE `wallets` SET `balance` = (balance + '$amount') WHERE `name` = '$wallet'";
+            $sql2 = "UPDATE `wallets` SET `balance` = (balance + '$newAmount') WHERE `name` = '$wallet'";
         }
 
         $result = mysqli_query($con, $sql);
@@ -53,48 +53,42 @@ if (isset($_POST['save'])) {
     <?php include_once('../includes/header.php') ?>
 
     <main>
-
         <div class="form">
             <form action="" method="post" autocomplete="off">
-                <div class="form__elements">
-                    <div class="form__amount form__wrapper">
-                        <label class="form__label" for="amount">Amount</label>
-                        <input class="form__input" type="number" step=".01" name="amount" id="amount" required min="0">
-                    </div>
-                    <div class="form__category form__wrapper">
-                        <label class="form__label" for="category">Category</label>
-                        <?php
-                        if ($con) {
-                            $sql = "SELECT `name` FROM `categories` WHERE user_id = $user_id";
-                            $result = mysqli_query($con, $sql);
-                            if ($result) {
-                                $category = mysqli_fetch_all($result);
-                            }
-                        } else {
-                            echo "Database connection failed";
-                        }
-                        ?>
-                        <select class="form__select" name="category" id="category" required>
-                            <option value="">Select category</option>
+                <div class="transaction__item">
+                    <div class="transaction__top">
+                        <p class="transaction__category">
                             <?php
-                            foreach ($category as $option) {
-                            ?>
-                                <option><?php echo $option[0]; ?></option>
-                            <?php
+                            if ($con) {
+                                $sql = "SELECT `name` FROM `categories` WHERE user_id = $user_id";
+                                $result = mysqli_query($con, $sql);
+                                if ($result) {
+                                    $category = mysqli_fetch_all($result);
+                                }
+                            } else {
+                                echo "Database connection failed";
                             }
                             ?>
-                        </select>
+                            <select class="form__select " name="category" id="category" required>
+                                <option value="">Select category</option>
+                                <?php
+                                foreach ($category as $option) {
+                                ?>
+                                    <option><?php echo $option[0]; ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </p>
+                        <input class="form__input transaction__amount" placeholder="$0.00" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" step=".01" name="amount" id="amount" required min="0">
                     </div>
-                    <div class="form__description form__wrapper">
-                        <label class="form__label" for="description">Description</label>
-                        <input class="form__input" type="text" name="description" id="description" autocomplete="off">
+                    <div class="transaction__description">
+                        <input class="form__input " placeholder="No description" type="text" name="description" id="description" autocomplete="off">
                     </div>
-                    <div class="form__date form__wrapper">
-                        <label class="form__label" for="date">Date</label>
-                        <input placeholder="" class="form__input" type="datetime-local" name="date" id="date" required>
+                    <div class="transaction__date">
+                        <input placeholder="yyyy-mm-dd hh:mm" class="form__input " type="datetime-local" name="date" id="date" required>
                     </div>
-                    <div class="form__wallet form__wrapper">
-                        <label class="form__label" for="wallet">Wallet</label>
+                    <div class="transaction__wallet">
                         <?php
                         if ($con) {
                             $sql = "SELECT `name` FROM `wallets` WHERE user_id = $user_id";
@@ -106,7 +100,7 @@ if (isset($_POST['save'])) {
                             echo "Database connection failed";
                         }
                         ?>
-                        <select class="form__select" name="wallet" id="wallet" required>
+                        <select class="form__select " name="wallet" id="wallet" required>
                             <option value="">Select wallet</option>
                             <?php
                             foreach ($wallet as $option) {
@@ -116,15 +110,14 @@ if (isset($_POST['save'])) {
                             }
                             ?>
                         </select>
-                    </div>
-                    <div class="form__incomeorexpense form__wrapper">
-                        <label class="form__label" for="income_or_expense">Income or Expense</label>
-                        <select class="form__select" name="income_or_expense" id="income_or_expense" required>
-                            <option value="">Select one option</option>
+                        <select class="form__select description" name="income_or_expense" id="income_or_expense" required>
+                            <option value="" class="">Income or Expense</option>
                             <option value="1">Income</option>
                             <option value="2">Expense</option>
                         </select>
                     </div>
+                </div>
+                <div class="form__elements">
                     <div class="form__save form__wrapper">
                         <button class="form__button" type="submit" name="save">Save</button>
                     </div>

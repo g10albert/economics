@@ -28,12 +28,14 @@ if (isset($_GET['id'])) {
     $result = mysqli_query($con, $sql);
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_array($result);
-        $name = $row['name'];
+        $current_name = $row['name'];
         $type = $row['type'];
         $balance = $row['balance'];
         $color = $row['color'];
     }
 }
+
+$user_id = $_SESSION['user_id'];
 
 if (isset($_POST['update'])) {
     $id = $_GET['id'];
@@ -45,6 +47,9 @@ if (isset($_POST['update'])) {
 
         $sql = "UPDATE wallets SET type = '$type', name = '$name', balance = '$balance', color = '$color' WHERE id = '$id'";
         $result = mysqli_query($con, $sql);
+
+        $sql_stuff = "UPDATE transactions SET wallet = '$name' WHERE user_id = '$user_id' and wallet = '$current_name'";
+        $result_2 = mysqli_query($con, $sql_stuff);
 
         header('Location:../pages/my_wallets.php');
     } else {
@@ -79,10 +84,10 @@ if (isset($_POST['delete'])) {
                                 <option value="Debit">Debit</option>
                                 <option value="Cash">Cash</option>
                             </select>
-                            <input class="form__input form__name wallet__p" type="text" value="<?php echo $name; ?>" name="name" id="name" required placeholder="Name">
+                            <input class="form__input form__name wallet__p" type="text" value="<?php echo $current_name; ?>" name="name" id="name" required placeholder="Name">
                         </div>
                         <p class="wallet__p wallet__initial">Initial balance</p>
-                        <input class="form__input wallet__p-price" value="<?php echo $balance; ?>" type="number" step=".01" name="balance" id="balance" autocomplete="off" required placeholder="$0">
+                        <input class="form__input wallet__p-price" value="<?php echo $balance; ?>" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" step=".01" name="balance" id="balance" autocomplete="off" required placeholder="$0">
                         <div class="select__color">
                             <input class="form__input form__color" value="<?php echo $color; ?>" type="color" name="color" id="color">
                         </div>
@@ -120,15 +125,22 @@ if (isset($_POST['delete'])) {
             confirmButtonText: "Yes",
             denyButtonText: "No",
             customClass: {
-                actions: "my-actions",
-                confirmButton: "order-2",
-                denyButton: "order-3",
+                popup: "module",
+                actions: "btns-wrapper",
+                confirmButton: "confirmButton",
+                denyButton: "denyButton",
             },
         }).then((result) => {
             if (result.isConfirmed) {
                 $('.actually__delete').click();
             } else if (result.isDenied) {
-                Swal.fire("The wallet wasn't deleted", "", "");
+                Swal.fire({
+                    title: "The wallet wasn't deleted",
+                    customClass: {
+                        popup: "module",
+                        confirmButton: "resultBtn",
+                    }
+                });
             }
         });
     })

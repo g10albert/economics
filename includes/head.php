@@ -5,6 +5,13 @@
 <link rel="icon" href="../assets/img/logo.png">
 <link rel="stylesheet" href="../css/main.css" />
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+
+<!-- LINK TO ANIMATE CSS CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+<!-- LINK TO SCROLLREVEAL JS CDN -->
+<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+
 <title>
     <?php
     if ($page == "dashboard") {

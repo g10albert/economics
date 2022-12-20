@@ -503,6 +503,7 @@ img {
 
   .recents__img {
     content: var(--img-recents);
+    box-shadow: none;
   }
 
   .extra__expenses {
@@ -582,7 +583,7 @@ img {
 
   .svg__about {
     position: absolute;
-    top: -340px;
+    top: -295px;
     right: 0;
   }
 }

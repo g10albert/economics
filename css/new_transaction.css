@@ -1,3 +1,46 @@
+.transaction__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: var(--mm-small);
+  background: var(--clr-darker);
+  padding: var(--pm-medium) var(--pm-medium);
+  border-radius: 1rem;
+}
+
+.transaction__top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.transaction__category {
+  flex: 0 0 60%;
+}
+
+.transaction__amount {
+text-align: right;
+}
+
+.transaction__description {
+  margin: 1rem 0 2rem 0;
+  line-height: 1;
+}
+
+.transaction__date {
+  margin-bottom: 2rem;
+}
+
+.transaction__wallet {
+  display: flex;
+  justify-content: space-between;
+}
+
+#income_or_expense {
+  text-align: right;
+}
+
 /* styles for main section mobile */
 
 .new__transaction-wrapper {
@@ -20,8 +63,7 @@ option {
 
 .form__input {
   font-size: var(--fzm-medium);
-  border-bottom: 2px solid var(--clr-darker);
-  width: 80%;
+  width: 100%;
   padding: 1rem;
 }
 
@@ -35,8 +77,7 @@ option {
 
 .form__select {
   font-size: var(--fzm-medium);
-  border-bottom: 2px solid var(--clr-darker);
-  width: 80%;
+  width: 100%;
   padding: 1rem;
 }
 

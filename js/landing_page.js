@@ -1,9 +1,9 @@
 // Get the button and go to top on click
 let mybutton = document.getElementById("myBtn");
 
-mybutton.addEventListener('click', () => {
-    topFunction()
-})
+mybutton.addEventListener("click", () => {
+  topFunction();
+});
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () {
@@ -23,3 +23,7 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+
+let revealElement = document.querySelectorAll(".revealjs");
+
+ScrollReveal().reveal(revealElement, { duration: 1200 });

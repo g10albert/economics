@@ -33,7 +33,7 @@ main {
   justify-content: space-between;
   margin-bottom: var(--mm-small);
   background: var(--clr-darker);
-  padding: var(--pm-small) var(--pm-medium);
+  padding: var(--pm-medium) var(--pm-medium);
   border-radius: 1rem;
 }
 

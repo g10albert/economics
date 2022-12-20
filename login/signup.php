@@ -22,7 +22,10 @@ if (isset($_POST['register'])) {
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
-    if (!preg_match_all($regex_password, $password)) {
+
+    if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+        $message = 'Enter a valid email address';
+    } else if (!preg_match_all($regex_password, $password)) {
         $message = 'The password needs at least one number and one capital letter';
     } else if ($password != $confirm_password) {
         $message = 'The passwords do not match';
