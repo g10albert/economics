@@ -1,6 +1,10 @@
+/* Hiding waves from showing on mobile */
+
 svg {
   display: none;
 }
+
+/* Styles for go to top button mobile */
 
 .toTop {
   display: none;
@@ -18,13 +22,24 @@ svg {
   font-size: 3rem;
 }
 
+/* General styles for body mobile */
+
 body {
   line-height: 1.2;
   background: var(--clr-wave-2);
 }
 
+/* Styles for header and menu mobile */
+
 header {
   height: 3.5rem;
+}
+
+/* Shadow and margin for every image in landing page tablet */
+
+img {
+  margin: 2rem 0;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 4px;
 }
 
 .nav__logo {
@@ -44,6 +59,8 @@ header {
 .nav__a {
   padding: 1rem;
 }
+
+/* Styles for call to action section mobile */
 
 .cta {
   padding: var(--mm-sides);
@@ -86,10 +103,11 @@ header {
   margin-left: 2rem;
 }
 
-img {
-  box-shadow: 10px 10px 100px 2px rgba(28, 27, 34, 0.75);
-  margin: 2rem 0;
+.cta_img {
+  content: var(--img-dashboard);
 }
+
+/* Styles for monthly final status section mobile */
 
 .features__h2 {
   text-align: center;
@@ -101,18 +119,29 @@ img {
   padding: var(--mm-sides);
 }
 
-.features__h3 {
+.mfs__h3 {
   font-size: var(--fzm-medium);
   margin: var(--mm-small);
 }
 
-.features__p {
+.mfs__p {
   font-size: var(--fzm-small);
   margin-bottom: 1rem;
 }
 
+.mfs__img {
+  content: var(--img-mfs);
+}
+
+/* Styles for wallets section mobile */
+
 .wallets {
   padding: var(--mm-sides);
+}
+
+.wallets__img {
+  z-index: -200;
+  content: var(--img-wallets);
 }
 
 .wallets__h3 {
@@ -125,8 +154,14 @@ img {
   font-size: var(--fzm-small);
 }
 
+/* Styles for categories section mobile */
+
 .categories {
   padding: var(--mm-sides);
+}
+
+.categories__img {
+  content: var(--img-categories);
 }
 
 .categories__h3 {
@@ -139,8 +174,14 @@ img {
   font-size: var(--fzm-small);
 }
 
+/* Styles for transactions section mobile */
+
 .transactions {
   padding: var(--mm-sides);
+}
+
+.transactions__img {
+  content: var(--img-transactions);
 }
 
 .transactions__h3 {
@@ -152,6 +193,8 @@ img {
 .transactions__p {
   font-size: var(--fzm-small);
 }
+
+/* Styles for extra section mobile */
 
 .extra {
   padding: var(--mm-sides);
@@ -167,6 +210,18 @@ img {
   font-size: var(--fzm-small);
 }
 
+.recents__img {
+  content: var(--img-recents);
+  box-shadow: none;
+}
+
+.expenses__img {
+  content: var(--img-expenses);
+  box-shadow: none;
+}
+
+/* Styles for about section mobile */
+
 .about__h3 {
   text-align: center;
   font-size: var(--fzm-medium);
@@ -181,6 +236,8 @@ img {
   font-size: var(--fzm-small);
   margin-bottom: 1rem;
 }
+
+/* Styles for footer section mobile */
 
 .footer {
   text-align: center;
@@ -199,7 +256,10 @@ img {
   border-bottom: 2px solid #c0a9d6;
 }
 
+/* Styles for tablets */
+
 @media (min-width: 768px) {
+  /* Styles for header and nav tablet */
   header {
     height: 5rem;
   }
@@ -207,6 +267,9 @@ img {
   .nav__logo {
     font-size: var(--fzt-big);
   }
+
+  /* Styles for cta section tablet */
+
   .cta {
     padding: var(--mt-sides);
   }
@@ -225,6 +288,8 @@ img {
     margin: 3rem 0;
   }
 
+  /* Styles for monthly final status section tablet */
+
   .features__h2 {
     font-size: var(--fzt-big);
     margin: var(--mt-small);
@@ -234,15 +299,17 @@ img {
     padding: var(--mt-sides);
   }
 
-  .features__h3 {
+  .mfs__h3 {
     font-size: var(--fzt-medium);
     margin: var(--mt-small);
   }
 
-  .features__p {
+  .mfs__p {
     font-size: var(--fzt-small);
     margin-bottom: 1rem;
   }
+
+  /* Styles for wallets section tablet */
 
   .wallets {
     padding: var(--mt-sides);
@@ -257,6 +324,8 @@ img {
     font-size: var(--fzt-small);
   }
 
+  /* Styles for categories section tablet */
+
   .categories {
     padding: var(--mt-sides);
   }
@@ -269,6 +338,8 @@ img {
   .categories__p {
     font-size: var(--fzt-small);
   }
+
+  /* Styles for transactions section tablet */
 
   .transactions {
     padding: var(--mt-sides);
@@ -283,6 +354,8 @@ img {
     font-size: var(--fzt-small);
   }
 
+  /* Styles for extra section tablet */
+
   .extra {
     padding: var(--mt-sides);
   }
@@ -295,6 +368,8 @@ img {
   .extra__p {
     font-size: var(--fzt-small);
   }
+
+  /* Styles for about section tablet */
 
   .about__h3 {
     font-size: var(--fzt-medium);
@@ -309,15 +384,23 @@ img {
     font-size: var(--fzt-small);
   }
 
+  /* Styles for footer section tablet */
+
   .footer__a {
     font-size: var(--fzt-small);
   }
 }
 
+/* Styles for desktop */
+
 @media (min-width: 1190px) {
+  /* Displaying waves dividers */
+
   svg {
     display: block;
   }
+
+  /* Styles for nav tablet */
 
   .nav {
     width: 100%;
@@ -336,18 +419,18 @@ img {
     font-size: var(--fzm-medium);
   }
 
+  /* Styles for main section tablet */
+
   main {
     margin-top: 7rem;
   }
+
+  /* Styles for cta section tablet */
 
   .cta {
     display: flex;
     position: relative;
     padding: 1rem;
-  }
-
-  .cta_img {
-    content: var(--img-dashboard);
   }
 
   .cta__left {
@@ -371,17 +454,18 @@ img {
     font-size: var(--fzt-small);
   }
 
+  /* Styles for monthly final status section tablet */
+
   .features__h2 {
     font-size: 3.2rem;
     color: var(--clr-wave-text);
   }
 
-  .features__h3 {
+  .mfs__h3 {
     font-size: var(--fzt-medium);
   }
 
   .mfs {
-    /* color: black; */
     color: var(--clr-wave-text);
     display: flex;
     align-items: center;
@@ -393,27 +477,20 @@ img {
     background: var(--clr-wave-1);
   }
 
-  .features__left {
+  .mfs {
     flex: 0 0 60%;
     margin-right: 1rem;
   }
 
-  .features__right {
+  .mfs__right {
     flex: 0 0 40%;
   }
 
-  .features__img {
-    content: var(--img-mfs);
-  }
+  /* Styles for wallets section tablet */
 
   .wallets__h3 {
     font-size: var(--fzt-medium);
     text-align: right;
-  }
-
-  .wallets__img {
-    z-index: -200;
-    content: var(--img-wallets);
   }
 
   .wallets {
@@ -421,14 +498,13 @@ img {
     align-items: center;
     flex-direction: row-reverse;
   }
+
+  /* Styles for categories section tablet */
+
   .categories__h3 {
     font-size: var(--fzt-medium);
     text-align: left;
     color: var(--clr-wave-text);
-  }
-
-  .categories__img {
-    content: var(--img-categories);
   }
 
   .categories__wrapper {
@@ -452,13 +528,11 @@ img {
     margin-left: 1rem;
   }
 
+  /* Styles for transactions section tablet */
+
   .transactions__h3 {
     font-size: var(--fzt-medium);
     text-align: right;
-  }
-
-  .transactions__img {
-    content: var(--img-transactions);
   }
 
   .transactions {
@@ -476,6 +550,8 @@ img {
     flex: 0 0 60%;
   }
 
+  /* Styles for extra section tablet */
+
   .extra_h3 {
     font-size: var(--fzt-medium);
     color: var(--clr-wave-text);
@@ -492,6 +568,8 @@ img {
     background: var(--clr-wave-1);
   }
 
+  /* Styles for recents section tablet */
+
   .extra__recents {
     display: flex;
     align-items: flex-end;
@@ -501,10 +579,7 @@ img {
     flex: 0 0 80%;
   }
 
-  .recents__img {
-    content: var(--img-recents);
-    box-shadow: none;
-  }
+  /* Styles for expenses section tablet */
 
   .extra__expenses {
     display: flex;
@@ -516,22 +591,23 @@ img {
     flex: 0 0 50%;
   }
 
-  .expenses__img {
-    content: var(--img-expenses);
-    box-shadow: none;
-  }
-
   .extra__p {
     margin: 5rem 1rem;
   }
+
+  /* Styles for about section tablet */
 
   .about__h3 {
     margin-top: 0;
   }
 
+  /* Styles for footer section tablet */
+
   .footer {
     margin: 8rem 0 3rem 0;
   }
+
+  /* Margin to the paragraphs next to images */
 
   .p__m__left {
     margin-left: 4rem;

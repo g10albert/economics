@@ -7,20 +7,24 @@ $page = "editcategory";
 
 <head>
     <?php
-    include_once('../includes/head.php')
+    include_once('./economics/includes/head.php')
     ?>
-    <link rel="stylesheet" href="../css/new_category.css" />
+    <link rel="stylesheet" href="./economics/css/new_category.css" />
 </head>
 
 <?php
 
 session_start();
 
+// Send user to landing page if there's no sessions
+
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../login/index.php");
+    header("Location: ./index.php");
 }
 
-include_once("../../api/connection.php");
+include_once("./api/connection.php");
+
+// Get id to edit the right category and retrieve current information
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -35,21 +39,29 @@ if (isset($_GET['id'])) {
 
 $user_id = $_SESSION['user_id'];
 
+// Sending new information to DB
+
 if (isset($_POST['update'])) {
     $id = $_GET['id'];
     $name = $_POST['name'];
     if (!empty($name)) {
 
+        // Update category name
+
         $sql = "UPDATE categories SET name = '$name' WHERE id = '$id'";
         $result = mysqli_query($con, $sql);
 
-        $sql_stuff = "UPDATE transactions SET category = '$name' WHERE user_id = '$user_id' and category = '$current_name'";
-        $result_2 = mysqli_query($con, $sql_stuff);
+        // Update name of category in transactions that category was being used
 
-        header('Location:../pages/categories.php');
+        $sql_transactions = "UPDATE transactions SET category = '$name' WHERE user_id = '$user_id' and category = '$current_name'";
+        $result_2 = mysqli_query($con, $sql_transactions);
+
+        header('Location:./categories.php');
     } else {
     }
 }
+
+// Delete category using it's ID
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -60,19 +72,20 @@ if (isset($_POST['delete'])) {
     if (!$result) {
         die("Query failed");
     }
-    header('Location:../pages/categories.php');
+    header('Location:./categories.php');
 }
 ?>
 
 <body>
-    <?php include_once('../includes/header.php') ?>
+    <?php include_once('./economics/includes/header.php') ?>
     <main>
 
         <div class="form">
             <form id="form" action="" method="post" autocomplete="off">
                 <div class="form__elements">
                     <div class="category__card">
-                        <input class="form__input category__p" value="<?php echo $current_name; ?>" type="text" name="name" id="name" required placeholder="Name">
+                        <!-- Display category current name -->
+                        <input class="form__input category__p" autofocus value="<?php echo $current_name; ?>" type="text" name="name" id="name" required placeholder="Name">
                     </div>
                     <div class="form__save form__wrapper">
                         <button class="form__button" type="submit" name="update">Update</button>
@@ -90,12 +103,14 @@ if (isset($_POST['delete'])) {
 
 
     <?php
-    include_once('../includes/footer.php');
-    include_once('../includes/scripts.php')
+    include_once('./economics/includes/footer.php');
+    include_once('./economics/includes/scripts.php')
     ?>
 </body>
 
 <script>
+    // Showing alert for the user to confirm whether delete it or not
+
     $('.form__button-delete').click(function(e) {
         e.preventDefault();
         Swal.fire({

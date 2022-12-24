@@ -105,6 +105,8 @@
   --img-expenses: url(../assets/img/expenses.png);
 }
 
+/* Styles for sweet alert modules */
+
 .module {
   background: var(--clr-darker) !important;
   color: var(--clr-text) !important;
@@ -135,6 +137,8 @@
   color: var(--clr-text) !important;
   font-size: 1.5rem !important;
 }
+
+/* Applying background color to the waves depending on dark or light mode */
 
 .wave__1 {
   fill: var(--clr-wave-1);
@@ -235,7 +239,6 @@ header {
 }
 
 .new__transaction-wrapper {
-  /* z-index: -10; */
   position: absolute;
   right: 3rem;
   top: 3rem;
@@ -264,7 +267,11 @@ header {
   color: var(--clr-red);
 }
 
+/* Styles for tablet */
+
 @media (min-width: 768px) {
+  /* Styles for sweet alert modules */
+
   .module {
     width: 50% !important;
   }
@@ -342,7 +349,10 @@ header {
   }
 }
 
+/* Styles for desktop */
+
 @media (min-width: 1190px) {
+  /* Styles for sweet alert modules */
 
   .module {
     background: var(--clr-darker) !important;
@@ -350,7 +360,7 @@ header {
     width: 25% !important;
     height: 50% !important;
   }
-  
+
   .swal2-title {
     margin-top: 2rem !important;
     font-size: 2rem !important;

@@ -1,8 +1,12 @@
+/* General styles for body */
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+/* Styles for nav mobile */
 
 .nav__logo {
   position: absolute;
@@ -21,6 +25,8 @@ body {
   margin-bottom: -0.3rem;
   margin: 0 0.5rem -0.3rem 0;
 }
+
+/* Styles for form mobile */
 
 .logsignup {
   text-align: center;
@@ -70,12 +76,19 @@ body {
   margin-top: 5rem;
 }
 
+/* Styles for tablets */
+
 @media (min-width: 768px) {
+
+  /* Styles for nav mobile */
+
   .dark_light {
     right: 8rem;
     top: 6rem;
     font-size: var(--fzt-small);
   }
+
+  /* Styles for form mobile */
 
   .logsignup {
     min-width: 60%;
@@ -103,11 +116,17 @@ body {
   }
 }
 
+/* Styles for desktop */
+
 @media (min-width: 1190px) {
+
+  /* Styles for nav mobile */
   .dark_light {
     right: 5rem;
     top: 3rem;
   }
+
+  /* Styles for form mobile */
 
   .logsignup {
     min-width: 35%;

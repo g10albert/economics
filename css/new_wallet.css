@@ -1,4 +1,10 @@
-/* styles for wallet section mobile */
+/* styles for main section mobile */
+
+main {
+  margin: var(--mm-sides);
+}
+
+/* styles for wallet card mobile */
 
 .wallet__card {
   font-size: var(--fzm-medium);
@@ -30,17 +36,6 @@
 .wallet__p-price {
   font-size: var(--fzm-big);
   font-weight: var(--weight-medium);
-}
-
-/* styles for main section mobile */
-
-main {
-  margin: var(--mm-sides);
-}
-
-.form__label {
-  font-size: var(--fzm-big);
-  margin-bottom: 1.5rem;
 }
 
 option {
@@ -111,11 +106,6 @@ option {
     text-align: center;
   }
 
-  .form__label {
-    font-size: var(--fzt-big);
-    margin-bottom: 2rem;
-  }
-
   .form__input {
     width: 100%;
     font-size: var(--fzt-medium);
@@ -155,11 +145,6 @@ option {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-  }
-
-  .form__label {
-    font-size: var(--fzd-big);
-    margin-bottom: 1rem;
   }
 
   .form__input {

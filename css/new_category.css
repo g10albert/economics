@@ -20,15 +20,14 @@
   margin: var(--mm-sides);
 }
 
-.form__label {
-  font-size: var(--fzm-big);
-  margin-bottom: 1.5rem;
-}
+/* styles for select options mobile */
 
 option {
   background: var(--clr-bg);
   color: var(--clr-text);
 }
+
+/* Styles for form input mobile */
 
 .form__input {
   font-size: var(--fzm-medium);
@@ -43,6 +42,8 @@ option {
   margin-bottom: 3rem;
 }
 
+/* Styles for form select mobile */
+
 .form__select {
   font-size: var(--fzm-medium);
   width: 80%;
@@ -53,11 +54,7 @@ option {
   outline: none;
 }
 
-.form__color {
-  margin: auto;
-  height: 50px;
-  width: 100%;
-}
+/* Styles for form buttons mobile */
 
 .form__button {
   margin-top: var(--mm-small);
@@ -81,6 +78,8 @@ option {
     margin: var(--mt-sides);
   }
 
+  /* Styles for form  mobile */
+
   .form {
     display: block;
     text-align: center;
@@ -93,20 +92,21 @@ option {
     text-align: center;
   }
 
-  .form__label {
-    font-size: var(--fzt-big);
-    margin-bottom: 2rem;
-  }
+  /* Styles for form input mobile */
 
   .form__input {
     width: 100%;
     font-size: var(--fzt-medium);
   }
 
+  /* Styles for form select mobile */
+
   .form__select {
     width: 100%;
     font-size: var(--fzt-medium);
   }
+
+  /* Styles for form buttons mobile */
 
   .form__button {
     font-size: var(--fzt-medium);
@@ -127,6 +127,8 @@ option {
     margin-top: 10rem;
   }
 
+/* Styles for forms mobile */
+
   .form {
     display: block;
     text-align: center;
@@ -139,18 +141,19 @@ option {
     text-align: center;
   }
 
-  .form__label {
-    font-size: var(--fzd-big);
-    margin-bottom: 1rem;
-  }
+  /* Styles for form input mobile */
 
   .form__input {
     font-size: var(--fzd-medium);
   }
 
+  /* Styles for form select mobile */
+
   .form__select {
     font-size: var(--fzd-medium);
   }
+
+  /* Styles for form buttons mobile */
 
   .form__button {
     font-size: var(--fzt-medium);

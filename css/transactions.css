@@ -118,7 +118,7 @@ main {
   margin-bottom: var(--mm-small);
 }
 
-/* styles for recents section */
+/* styles for recents section mobile */
 
 .recents__title {
   font-size: var(--fzm-big);
@@ -161,6 +161,8 @@ main {
   main {
     margin: var(--mt-sides);
   }
+
+  /* styles for transaction section tablets */
 
   .transaction__title {
     font-size: var(--fzt-big);
@@ -255,6 +257,8 @@ main {
     margin-top: 10rem;
   }
 
+  /* styles for transaction section desktop */
+
   .transaction__title {
     font-size: var(--fzd-big);
   }
@@ -273,6 +277,7 @@ main {
 
   .transaction__description {
     margin: 1rem 0 2rem 0;
+    word-break: break-all;
   }
 
   .transaction__p-price {

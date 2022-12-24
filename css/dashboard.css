@@ -139,6 +139,8 @@ main {
     margin: var(--mt-sides);
   }
 
+  /* Styles for wallets section tablets */
+
   .wallet__title {
     font-size: var(--fzt-big);
     margin-bottom: var(--mt-small);
@@ -225,6 +227,8 @@ main {
     margin-right: 40rem;
     margin-top: 10rem;
   }
+
+  /* styles for wallets section desktop */
 
   .wallet__title {
     font-size: var(--fzd-big);

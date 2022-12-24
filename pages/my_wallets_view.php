@@ -1,43 +1,49 @@
 <?php
-$page = 'transanctions';
+
+$page = 'mywallets';
 
 session_start();
 
+// Send user to landing page if there's no session
+
 if (!isset($_SESSION['user_id'])) {
-  header("Location: ../login/index.php");
+  header("Location: ./index.php");
 }
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <?php include_once('../includes/head.php') ?>
-    <link rel="stylesheet" href="../css/transactions.css" />
+    <?php include_once('./economics/includes/head.php') ?>
+    <link rel="stylesheet" href="./economics/css/my_wallets.css" />
 </head>
 
 
 <body>
 
-    <?php include_once('../includes/header.php') ?>
+    <?php include_once('./economics/includes/header.php') ?>
 
     <main>
-        <div class="transaction__header">
-            <h2 class="transaction__title">My Transactions</h2>
-            <a href="../new_pages/new_transaction.php" class="transaction__new">New transaction</a>
+        <!-- My wallets section -->
+        <div class="wallet__header">
+            <h2 class="wallet__title">My wallets</h2>
+            <a href="./new_wallet.php" class="wallet__p">New wallet</a>
         </div>
-        <div class="transaction" id="transactions">
+        <div class="wallet" id="wallets">
 
-            <!-- element that is going to have the category cards -->
+            <!-- element that is going to have the wallet cards -->
 
         </div>
 
         <div class="expenses__recents-wrapper">
             <div class="new__transaction-wrapper new__transaction-desktop">
-                <a href="../new_pages/new_transaction.php" class="new__transaction">
+                <a href="./new_transaction.php" class="new__transaction">
                     New transaction<iconify-icon icon="grommet-icons:transaction" class="new__transaction"></iconify-icon>
                 </a>
             </div>
+            <!-- Expenses section -->
             <div class="expenses">
                 <div class="expenses__top">
                     <div class="">
@@ -61,6 +67,7 @@ if (!isset($_SESSION['user_id'])) {
                     <canvas id="doughnutChart" class="expenses__graphic"></canvas>
                 </div>
             </div>
+            <!-- Recents section -->
             <div class="recents">
                 <h2 class="recents__title">Recents</h2>
                 <div class="recents__divider" id="recents">
@@ -73,12 +80,12 @@ if (!isset($_SESSION['user_id'])) {
     </main>
 
     <?php
-    include_once('../includes/footer.php');
-    include_once('../includes/scripts.php')
+    include_once('./economics/includes/footer.php');
+    include_once('./economics/includes/scripts.php')
     ?>
 
-    <!-- LINK TO MY TRANSACTIONS FILE -->
-    <script src="../js/transactions.js" type="module"></script>
+    <!-- LINK TO MY JS FILE -->
+    <script src="./economics/js/my_wallets.js" type="module"></script>
 </body>
 
 </html>

@@ -51,7 +51,7 @@ fetch("http://localhost/api/transactions_api.php")
                     <p class="transaction__p-price">Wallet: ${
                       data[i].wallet
                     }</p>
-                    <a class="transaction__a" href="../edit_pages/edit_transaction.php?id=${
+                    <a class="transaction__a" href="./edit_transaction.php?id=${
                       data[i].id
                     }"><iconify-icon icon="material-symbols:edit"></iconify-icon></a>
                 </div>

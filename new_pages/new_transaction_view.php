@@ -6,21 +6,25 @@ $page = "newtransaction";
 <html lang="en">
 
 <head>
-    <?php include_once('../includes/head.php') ?>
-    <link rel="stylesheet" href="../css/new_transaction.css" />
+    <?php include_once('./economics/includes/head.php') ?>
+    <link rel="stylesheet" href="./economics/css/new_transaction.css" />
 </head>
 
 <?php
 
 session_start();
 
+// Send the user to landing page if there's no session
+
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../login/index.php");
+    header("Location: ./index.php");
 }
 
 $user_id = $_SESSION['user_id'];
 
-include_once("../../api/connection.php");
+include_once("./api/connection.php");
+
+// Save transaction information
 
 if (isset($_POST['save'])) {
     $amount = $_POST['amount'];
@@ -35,22 +39,24 @@ if (isset($_POST['save'])) {
         $sql = "INSERT INTO `transactions` (`amount`, `income_or_outcome`, `date`, `category`, `description`, `wallet`, `user_id`) VALUES ('$newAmount', '$income_or_expense', '$date', '$category', '$description', '$wallet', '$user_id')";
 
         if ($income_or_expense == 2) {
+            // subtract amount from wallet if it's an outcome
             $sql2 = "UPDATE `wallets` SET `balance` = (balance - '$newAmount') WHERE `name` = '$wallet'";
         } else {
+            // add amount from wallet if it's an income
             $sql2 = "UPDATE `wallets` SET `balance` = (balance + '$newAmount') WHERE `name` = '$wallet'";
         }
 
         $result = mysqli_query($con, $sql);
         $result2 = mysqli_query($con, $sql2);
 
-        header('Location:../pages/transactions.php');
+        header('Location:./transactions.php');
     } else {
     }
 }
 ?>
 
 <body>
-    <?php include_once('../includes/header.php') ?>
+    <?php include_once('./economics/includes/header.php') ?>
 
     <main>
         <div class="form">
@@ -69,6 +75,7 @@ if (isset($_POST['save'])) {
                                 echo "Database connection failed";
                             }
                             ?>
+                            <!-- Select categories -->
                             <select class="form__select " name="category" id="category" required>
                                 <option value="">Select category</option>
                                 <?php
@@ -80,12 +87,16 @@ if (isset($_POST['save'])) {
                                 ?>
                             </select>
                         </p>
-                        <input class="form__input transaction__amount" placeholder="$0.00" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" step=".01" name="amount" id="amount" required min="0">
+                        <!-- input amount -->
+                        <input class="form__input transaction__amount" autofocus placeholder="$0.00" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" step=".01" name="amount" id="amount" required min="0">
                     </div>
                     <div class="transaction__description">
+                        <!-- input description -->
                         <input class="form__input " placeholder="No description" type="text" name="description" id="description" autocomplete="off">
                     </div>
                     <div class="transaction__date">
+                        <!-- input date -->
+                        <label class="label__date" for="date">Date</label>
                         <input placeholder="yyyy-mm-dd hh:mm" class="form__input " type="datetime-local" name="date" id="date" required>
                     </div>
                     <div class="transaction__wallet">
@@ -101,6 +112,7 @@ if (isset($_POST['save'])) {
                         }
                         ?>
                         <select class="form__select " name="wallet" id="wallet" required>
+                            <!-- Select wallet -->
                             <option value="">Select wallet</option>
                             <?php
                             foreach ($wallet as $option) {
@@ -111,6 +123,7 @@ if (isset($_POST['save'])) {
                             ?>
                         </select>
                         <select class="form__select description" name="income_or_expense" id="income_or_expense" required>
+                            <!-- Select if it's an income or outcome -->
                             <option value="" class="">Income or Expense</option>
                             <option value="1">Income</option>
                             <option value="2">Expense</option>
@@ -130,12 +143,12 @@ if (isset($_POST['save'])) {
 
 
     <?php
-    include_once('../includes/footer.php');
-    include_once('../includes/scripts.php')
+    include_once('./economics/includes/footer.php');
+    include_once('./economics/includes/scripts.php')
     ?>
 
     <!-- LINK TO MY TRANSACTIONS JS FILE -->
-    <script src="../js/new_transaction.js" type="module"></script>
+    <script src="./economics/js/new_transaction.js" type="module"></script>
 </body>
 
 </html>

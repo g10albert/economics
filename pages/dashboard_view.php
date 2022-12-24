@@ -4,8 +4,10 @@ $page = 'dashboard';
 
 session_start();
 
+// Send user to landing page if there's no session
+
 if (!isset($_SESSION['user_id'])) {
-  header("Location: ../login/index.php");
+  header("Location: ./index.php");
 }
 
 ?>
@@ -13,16 +15,18 @@ if (!isset($_SESSION['user_id'])) {
 <html lang="en">
 
 <head>
-  <?php include_once('../includes/head.php') ?>
-  <link rel="stylesheet" href="../css/dashboard.css" />
+  <?php include_once('./economics/includes/head.php') ?>
+  <link rel="stylesheet" href="./economics/css/dashboard.css" />
 </head>
 
 
 <body>
 
-  <?php include_once('../includes/header.php') ?>
+  <?php include_once('./economics/includes/header.php') ?>
 
   <main>
+
+  <!-- My wallets section -->
     <h2 class="wallet__title">My wallets</h2>
     <div class="wallet" id="wallets">
 
@@ -31,6 +35,7 @@ if (!isset($_SESSION['user_id'])) {
     </div>
 
     <div class="monthly">
+      <!-- Monthly final status section -->
       <h2 class="monthly__title">Monthly final status</h2>
       <div class="monthly__graphic-container">
         <canvas id="barChart" class="monthly__graphic"></canvas>
@@ -39,10 +44,11 @@ if (!isset($_SESSION['user_id'])) {
 
     <div class="expenses__recents-wrapper">
       <div class="new__transaction-wrapper new__transaction-desktop">
-        <a href="../new_pages/new_transaction.php" class="new__transaction">
+        <a href="./new_transaction.php" class="new__transaction">
           New transaction<iconify-icon icon="grommet-icons:transaction" class="new__transaction"></iconify-icon>
         </a>
       </div>
+      <!-- Expenses section -->
       <div class="expenses">
         <div class="expenses__top">
           <div class="">
@@ -66,6 +72,7 @@ if (!isset($_SESSION['user_id'])) {
           <canvas id="doughnutChart" class="expenses__graphic"></canvas>
         </div>
       </div>
+      <!-- Recents section -->
       <div class="recents">
         <h2 class="recents__title">Recents</h2>
         <div class="recents__divider" id="recents">
@@ -78,12 +85,12 @@ if (!isset($_SESSION['user_id'])) {
   </main>
 
   <?php
-  include_once('../includes/footer.php');
-  include_once('../includes/scripts.php');
+  include_once('./economics/includes/footer.php');
+  include_once('./economics/includes/scripts.php');
   ?>
 
   <!-- LINK TO MY JS FILE -->
-  <script src="../js/dashboard.js" type="module"></script>
+  <script src="./economics/js/dashboard.js" type="module"></script>
 </body>
 
 </html>

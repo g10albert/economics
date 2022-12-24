@@ -39,6 +39,8 @@ fetch("http://localhost/api/wallets_api.php")
     }
   });
 
+  // Function to change text color in wallet depending on background color
+
 function getTextColor(rgba) {
   rgba = rgba.match(/\d+/g);
   if (rgba[0] * 0.299 + rgba[1] * 0.587 + rgba[2] * 0.114 > 186) {

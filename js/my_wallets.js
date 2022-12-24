@@ -31,7 +31,7 @@ fetch("http://localhost/api/wallets_api.php")
         </div>
         <p class="wallet__p">Balance</p>
         <p class="wallet__p-price">${formatter.format(data[i].balance)}</p>
-        <a class="wallet__a" href="../edit_pages/edit_wallet.php?id=${
+        <a class="wallet__a" href="./edit_wallet.php?id=${
           data[i].id
         }"><iconify-icon icon="material-symbols:edit"></iconify-icon></a>
       </div>
@@ -39,6 +39,8 @@ fetch("http://localhost/api/wallets_api.php")
       wallets.innerHTML += itemWallet;
     }
   });
+
+  // Function to change text color in wallet depending on background color
 
 function getTextColor(rgba) {
   rgba = rgba.match(/\d+/g);

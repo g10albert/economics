@@ -6,21 +6,25 @@ $page = "newcategory";
 <html lang="en">
 
 <head>
-    <?php include_once('../includes/head.php') ?>
-    <link rel="stylesheet" href="../css/new_category.css" />
+    <?php include_once('./economics/includes/head.php') ?>
+    <link rel="stylesheet" href="./economics/css/new_category.css" />
 </head>
 
 <?php
 
 session_start();
 
+// Send the user to landing page if there's no session
+
 if (!isset($_SESSION['user_id'])) {
-  header("Location: ../login/index.php");
+    header("Location: ./index.php");
 }
 
 $user_id = $_SESSION['user_id'];
 
-include_once("../../api/connection.php");
+include_once("./api/connection.php");
+
+// Save category
 
 if (isset($_POST['save'])) {
     $name = $_POST['name'];
@@ -31,7 +35,7 @@ if (isset($_POST['save'])) {
 
         $result = mysqli_query($con, $sql);
 
-        header('Location:../pages/categories.php');
+        header('Location:./categories.php');
     } else {
     }
 }
@@ -39,14 +43,15 @@ if (isset($_POST['save'])) {
 
 <body>
 
-    <?php include_once('../includes/header.php') ?>
+    <?php include_once('./economics/includes/header.php') ?>
 
     <main>
 
         <form action="" method="post" autocomplete="off">
             <div class="form__elements">
                 <div class="category__card">
-                    <input class="form__input category__p" type="text" name="name" id="name" required placeholder="Name">
+                    <!-- Input category -->
+                    <input class="form__input category__p" autofocus type="text" name="name" id="name" required placeholder="Name">
                 </div>
 
                 <div class="form__save form__wrapper">
@@ -60,8 +65,8 @@ if (isset($_POST['save'])) {
     </main>
 
     <?php
-    include_once('../includes/footer.php');
-    include_once('../includes/scripts.php')
+    include_once('./economics/includes/footer.php');
+    include_once('./economics/includes/scripts.php')
     ?>
 </body>
 

@@ -1,9 +1,13 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="../css/super-reset.css" />
-<link rel="icon" href="../assets/img/logo.png">
-<link rel="stylesheet" href="../css/main.css" />
+<!-- LINK TO SUPER RESET CSS -->
+<link rel="stylesheet" href="./economics/css/super-reset.css" />
+<!-- LINK TO PAGE ICON -->
+<link rel="icon" href="./economics/assets/img/logo.png">
+<!-- LINK TO MAIN CSS -->
+<link rel="stylesheet" href="./economics/css/main.css" />
+<!-- LINK TO SWEET ALERT CSS -->
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 
 <!-- LINK TO ANIMATE CSS CDN -->
@@ -11,6 +15,8 @@
 
 <!-- LINK TO SCROLLREVEAL JS CDN -->
 <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+
+<!-- Display title depending on page the user is -->
 
 <title>
     <?php

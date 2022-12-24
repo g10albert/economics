@@ -19,7 +19,7 @@ fetch("http://localhost/api/categories_api.php")
       let itemWallet = `
       <div class="category__card">
         <p class="category__p">${data[i].name}</p>
-        <a class="category__a" href="../edit_pages/edit_category.php?id=${data[i].id}"><iconify-icon icon="material-symbols:edit"></iconify-icon></a>
+        <a class="category__a" href="./edit_category.php?id=${data[i].id}"><iconify-icon icon="material-symbols:edit"></iconify-icon></a>
       </div>
       `;
       categories.innerHTML += itemWallet;
