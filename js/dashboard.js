@@ -39,7 +39,7 @@ fetch("http://localhost/api/wallets_api.php")
     }
   });
 
-  // Function to change text color in wallet depending on background color
+// Function to change text color in wallet depending on background color
 
 function getTextColor(rgba) {
   rgba = rgba.match(/\d+/g);
@@ -86,12 +86,11 @@ fetch("http://localhost/api/transactions_api.php")
     return response.json();
   })
   .then((data) => {
-    // get the year only from the newest transaction
-
-    let dateYear = data[0].date.substring(0, 4);
-
-    if (dateYear == new Date().getFullYear()) {
-      for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
+      // get the year only from the transaction
+      let dateYear = data[i].date.substring(0, 4);
+      // only get data from current year
+      if (dateYear == new Date().getFullYear()) {
         // get the year only from the data from the database
         let dateMonth = data[i].date.substring(5, 7);
 
